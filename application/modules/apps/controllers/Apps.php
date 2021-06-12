@@ -5,9 +5,9 @@
 -- CREATED BY : RIZKY MUSTHOFA
 -- COPYRIGHT  : Copyright (c) 2020 
 -- LICENSE    : http://opensource.org/licenses/MIT  MIT License
--- CREATED ON : 2020-06-09
+-- CREATED ON : 2021-06-12
 -- UPDATED ON : V.1
--- APP NAME   : JOB CAREER
+-- APP NAME   : VILLA RESTO
 -- ---------------------------------------------------------------
 */
 defined('BASEPATH') OR exit('No direct script access allowed');
@@ -18,11 +18,26 @@ class Apps extends CI_Controller {
 	    /*Load session*/
 	    $this->load->library('session');
 	    /*Model*/ 
+	    $this->load->model(array('M_account'));
+
+
+	    $this->base_url = 'apps';
 	}
 	
 	public function index()
 	{ 
-		echo "as";
+		if (session('id')==''){
+			redirect('apps/auth');	
+		}else{
+			redirect('apps/home');
+		} 
+	}
+
+	public function handler()
+	{
+		$username = post('username');
+		$password = post('password');
+		echo $username.' '.$password;
 	}
 
 	 

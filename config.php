@@ -18,7 +18,7 @@
 	$hostname = 'localhost';
 	$username = 'rizky';
 	$password = 'rizky';
-	$database = 'db_sso';
+	$database = 'db_resto';
 
 
 	// $hostname = 'localhost';

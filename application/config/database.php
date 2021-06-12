@@ -80,6 +80,7 @@ $db['default'] = array(
 	'username' => $username,
 	'password' => $password,
 	'database' => $database,
+	'APP_NAME' => "VILA RESTO",
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

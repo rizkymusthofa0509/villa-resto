@@ -1,13 +1,13 @@
 <?php
 /*
 -- ---------------------------------------------------------------
--- MASTER
+-- JOB CAREER 
 -- CREATED BY : RIZKY MUSTHOFA
 -- COPYRIGHT  : Copyright (c) 2020 
 -- LICENSE    : http://opensource.org/licenses/MIT  MIT License
--- CREATED ON : Oktober 2020
+-- CREATED ON : 2021-06-12
 -- UPDATED ON : V.1
--- APP NAME   : ACCOUNTING APPS
+-- APP NAME   : VILLA RESTO
 -- ---------------------------------------------------------------
 */
 	function login()
