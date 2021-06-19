@@ -20,12 +20,12 @@ class Category extends CI_Controller {
 	    /*Model*/
 	    $this->load->model('M_category');  
 	    // $this->load->helper('dompet_helper');  
-		$this->modul = 'Kategori';
+		$this->modul = 'Category';
 	}
 	
 	public function index()
 	{ 
-		$data['title'] 	= 'Panel ';
+		$data['title'] 	= $this->modul.'  ';
 		$data['pages'] 	= 'category/index';
         $data['getAll'] = $this->M_category->getAll();
 		$this->load->view('template',$data); 
@@ -33,36 +33,65 @@ class Category extends CI_Controller {
 
     public function create()
 	{ 
-		$data['title'] 	= 'Panel ';
+		$data['title'] 	= $this->modul.' - Create ';
 		$data['pages'] 	= 'category/form_add';
 		$this->load->view('template',$data); 
 	}
 
     public function store()
 	{ 
-		$data['title'] 	= 'Panel ';
-		$data['pages'] 	= 'category/form_add';
-		$this->load->view('template',$data); 
+		$data = [
+            'name'=>post('name'), 
+        ];
+
+        $store = $this->db->insert('product_category',$data);
+        if ($store){
+            set_flashdata('info','
+                        <div class="alert alert-success" role="alert">
+                            Data Hasben Saved.
+                        </div>
+                    ');
+            redirect('administrator/category');
+        }
 	}
 
     public function edit($id='')
 	{ 
-		$data['title'] 	= 'Panel ';
+		$data['title'] 	= $this->modul.' - Edit ';
 		$data['pages'] 	= 'category/form_edit';
+        $data['detail'] = $this->M_category->getWhere($id)->row_array(); 
 		$this->load->view('template',$data); 
 	}
     
-    public function update()
+    public function update($id='')
 	{ 
-		$data['title'] 	= 'Panel ';
-		$data['pages'] 	= 'category/form_add';
-		$this->load->view('template',$data); 
+		$data = [
+            'name'=>post('name'), 
+        ];
+
+        $store = $this->db->where(array('id'=>$id));
+        $store = $this->db->update('product_category',$data);
+        
+        if ($store){
+            set_flashdata('info','
+                        <div class="alert alert-success" role="alert">
+                            Data Hasben Updated.
+                        </div>
+                    ');
+            redirect('administrator/category');
+        }
 	}
 
-    public function destroy()
+    public function destroy($id='')
 	{ 
-		$data['title'] 	= 'Panel ';
-		$data['pages'] 	= 'category/form_add';
-		$this->load->view('template',$data); 
+		$destroy = $this->db->delete('product_category',array('id'=>$id));
+        if ($destroy){
+            set_flashdata('info','
+                        <div class="alert alert-success" role="alert">
+                            Data Hasben Deleted.
+                        </div>
+                    ');
+            redirect('administrator/category');
+        }
 	}
 }

@@ -37,6 +37,16 @@ class M_category extends CI_Model{
         return $query;
     }
 
+
+    public function getWhere($id='')
+    {
+        $this->db->select('product_category.*');
+        $this->db->from('product_category');
+        $this->db->where(array('id'=>$id));  
+        $query = $this->db->get();
+        return $query;
+    }
+
     
 
 }
