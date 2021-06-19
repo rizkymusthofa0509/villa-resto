@@ -12,7 +12,7 @@
 */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class M_dashboard extends CI_Model{
+class M_category extends CI_Model{
 	
 	function __construct()
     {
@@ -20,10 +20,22 @@ class M_dashboard extends CI_Model{
          $this->load->library('session');
     }
 
-    function user($user_id='')
+    // function getAll()
+    // {
+    // 	$this->db->select('product_category.name as category, product.*');
+    //     $this->db->from('product_category'); 
+    //     $this->db->join('product_category','product_category.id = product.category_id','left');
+    //     $query = $this->db->get();
+    //     return $query;
+    // }
+
+    function getAll()
     {
-    	return $this->db->query("SELECT * FROM tbl_users_rekening WHERE user_id='$user_id' ");
-    } 
+    	$this->db->select('product_category.*');
+        $this->db->from('product_category');  
+        $query = $this->db->get();
+        return $query;
+    }
 
     
 

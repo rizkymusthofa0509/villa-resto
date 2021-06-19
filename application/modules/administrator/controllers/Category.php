@@ -11,22 +11,23 @@
 -- ---------------------------------------------------------------
 */
 defined('BASEPATH') OR exit('No direct script access allowed');
-class Administrator extends CI_Controller {
-	function __construct() {
+class Category extends CI_Controller {
+    function __construct() {
 	    parent::__construct(); 
 
 	    /*Load session*/
 	    $this->load->library('session');
 	    /*Model*/
-	    // $this->load->model('M_dashboard');  
+	    $this->load->model('M_category');  
 	    // $this->load->helper('dompet_helper');  
-		$this->modul = 'Dashboard';
+		$this->modul = 'Kategori';
 	}
 	
 	public function index()
 	{ 
 		$data['title'] 	= 'Panel ';
 		$data['pages'] 	= 'category/index';
+        $data['getAll'] = $this->M_category->getAll();
 		$this->load->view('template',$data); 
 	}
 
@@ -64,5 +65,4 @@ class Administrator extends CI_Controller {
 		$data['pages'] 	= 'category/form_add';
 		$this->load->view('template',$data); 
 	}
- 
 }

@@ -11,16 +11,15 @@
 -- ---------------------------------------------------------------
 */
 defined('BASEPATH') OR exit('No direct script access allowed');
-class Administrator extends CI_Controller {
-	function __construct() {
+class Transaction extends CI_Controller {
+    function __construct() {
 	    parent::__construct(); 
 
 	    /*Load session*/
 	    $this->load->library('session');
 	    /*Model*/
 	    // $this->load->model('M_dashboard');  
-	    // $this->load->helper('dompet_helper');  
-		$this->modul = 'Dashboard';
+	    // $this->load->helper('dompet_helper');   
 	}
 	
 	public function index()
@@ -64,5 +63,4 @@ class Administrator extends CI_Controller {
 		$data['pages'] 	= 'category/form_add';
 		$this->load->view('template',$data); 
 	}
- 
 }

@@ -11,8 +11,8 @@
 -- ---------------------------------------------------------------
 */
 defined('BASEPATH') OR exit('No direct script access allowed');
-class Administrator extends CI_Controller {
-	function __construct() {
+class Product extends CI_Controller {
+    function __construct() {
 	    parent::__construct(); 
 
 	    /*Load session*/
@@ -20,47 +20,47 @@ class Administrator extends CI_Controller {
 	    /*Model*/
 	    // $this->load->model('M_dashboard');  
 	    // $this->load->helper('dompet_helper');  
-		$this->modul = 'Dashboard';
+		$this->modul = 'Produk';
 	}
 	
 	public function index()
 	{ 
-		$data['title'] 	= 'Panel ';
+		$data['title'] 	= $this->modul.' Panel';
 		$data['pages'] 	= 'category/index';
 		$this->load->view('template',$data); 
 	}
 
     public function create()
 	{ 
-		$data['title'] 	= 'Panel ';
+		$data['title'] 	= $this->modul.' Panel';
 		$data['pages'] 	= 'category/form_add';
 		$this->load->view('template',$data); 
 	}
 
     public function store()
 	{ 
-		$data['title'] 	= 'Panel ';
+		$data['title'] 	= $this->modul.' Panel';
 		$data['pages'] 	= 'category/form_add';
 		$this->load->view('template',$data); 
 	}
 
     public function edit($id='')
 	{ 
-		$data['title'] 	= 'Panel ';
+		$data['title'] 	= $this->modul.' Panel';
 		$data['pages'] 	= 'category/form_edit';
 		$this->load->view('template',$data); 
 	}
     
     public function update()
 	{ 
-		$data['title'] 	= 'Panel ';
+		$data['title'] 	= $this->modul.' Panel';
 		$data['pages'] 	= 'category/form_add';
 		$this->load->view('template',$data); 
 	}
 
     public function destroy()
 	{ 
-		$data['title'] 	= 'Panel ';
+		$data['title'] 	= $this->modul.' Panel';
 		$data['pages'] 	= 'category/form_add';
 		$this->load->view('template',$data); 
 	}
