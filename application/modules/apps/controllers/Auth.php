@@ -56,7 +56,7 @@ class Auth extends CI_Controller {
                             Username / Password salah.
                         </div>
                     ');
-			redirect('auth');
+			redirect('apps/auth');
 		}
 	}
 
