@@ -89,7 +89,7 @@
                		<div class="col-6 pr-2 pt-3">
 	                     <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
 	                        <div class="list-card-image">
-	                           <a href="<?= base_url() ?>apps/detail/<?= $list->id ?>" class="text-dark"> 
+	                           <a href="<?= base_url() ?>apps/detail?id=<?= $list->id ?>" class="text-dark"> 
 	                              <div class="p-3">
 	                                 <img src="<?= base_url() ?>assets/product/<?= $list->image ?>" class="img-fluid item-img w-100 mb-3">
 	                                 <h6><?= $list->name ?></h6>
