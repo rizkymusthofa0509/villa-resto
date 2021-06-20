@@ -26,7 +26,7 @@ class Administrator extends CI_Controller {
 	public function index()
 	{ 
 		$data['title'] 	= 'Panel ';
-		$data['pages'] 	= 'category/index';
+		$data['pages'] 	= 'default/index';
 		$this->load->view('template',$data); 
 	}
 
