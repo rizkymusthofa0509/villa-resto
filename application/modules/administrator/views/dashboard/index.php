@@ -112,15 +112,12 @@
                 </div>
                 <div class="card-body">
                      
-                    <?php
+                <?php
                         foreach ($reject->result() as $list) {
                             ?>
-                                <h4 class="small font-weight-bold">Account Setup <span
-                                        class="float-right">Complete!</span></h4>
-                                <div class="progress">
-                                    <div class="progress-bar bg-success" role="progressbar" style="width: 100%"
-                                        aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>        
+                                <h4 class="small font-weight-bold"><?= $list->name ?><span
+                                        class="float-right"><?= $list->villa_name ?></span></h4> 
+                                        
                             <?php
                         }
                     ?>
