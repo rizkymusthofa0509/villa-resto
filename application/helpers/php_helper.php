@@ -13,7 +13,7 @@
 	function login()
 	{
 		if (empty(session())){
-			redirect('auth');
+			redirect('administrator/auth');
 		} 
 	}
 	function set_flashdata($name='',$value='')

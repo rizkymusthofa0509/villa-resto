@@ -19,19 +19,19 @@ class Auth extends CI_Controller {
 	    $this->load->library('session');
 	    /*Model*/
 	    $this->load->model('M_category');   
+		$this->modul = 'Auth';
 	}
 	
 	public function index()
 	{ 
-		$data['title'] 	= $this->modul.'  ';
-		$data['pages'] 	= 'category/index';
-        $data['getAll'] = $this->M_category->getAll();
-		$this->load->view('template',$data); 
+		$data['title'] 	= $this->modul.'  '; 
+		$this->load->view('auth/login',$data); 
 	}
     public function handler()
     {
         $username = post('username');
-		$password = post('password'); 
+		$password = md5(post('password')); 
+		echo $username.' '.$password;
 
 		$cek = $this->db->query("SELECT * FROM account WHERE username='$username' AND password='$password' ");
 		if ($cek->num_rows() > 0){
@@ -41,9 +41,19 @@ class Auth extends CI_Controller {
                 'fullname'=>$data['fullname'],
             ];
 			$this->session->set_userdata($session);
-			redirect('administrator');
+			if ($data['type']=='admin'){
+				redirect('administrator');
+			}else{
+				redirect('apps');
+			}
+			
 		}else{
-			redirect('administrator');
+			set_flashdata('info','
+                        <div class="alert alert-danger" role="alert">
+                            Username / Password salah.
+                        </div>
+                    ');
+			redirect('administrator/auth');
 		}
     }
 

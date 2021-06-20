@@ -21,6 +21,7 @@ class Villa extends CI_Controller {
 	    $this->load->model('M_villa');  
 	    // $this->load->helper('dompet_helper');  
 		$this->modul = 'Villa';
+        login();
 	}
 	
 	public function index()

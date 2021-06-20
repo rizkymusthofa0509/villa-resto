@@ -20,6 +20,7 @@ class Transaction extends CI_Controller {
 	    /*Model*/
 	    $this->load->model(array('M_transaction','M_villa','M_transaction','M_transaction_detail'));   
 		$this->modul = 'Transaction';
+		login();
 	}
 	
 	public function index()

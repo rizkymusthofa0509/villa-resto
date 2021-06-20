@@ -21,6 +21,7 @@ class Product extends CI_Controller {
 	    $this->load->model(array('M_product','M_category'));  
 	    // $this->load->helper('dompet_helper');  
 		$this->modul = 'Product';
+        login();
 	}
 	
 	public function index()

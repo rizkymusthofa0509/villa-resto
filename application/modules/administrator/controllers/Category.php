@@ -21,6 +21,7 @@ class Category extends CI_Controller {
 	    $this->load->model('M_category');  
 	    // $this->load->helper('dompet_helper');  
 		$this->modul = 'Category';
+        login();
 	}
 	
 	public function index()

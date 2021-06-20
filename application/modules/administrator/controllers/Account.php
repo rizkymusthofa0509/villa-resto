@@ -21,6 +21,7 @@ class Account extends CI_Controller {
 	    $this->load->model('M_account');  
 	    // $this->load->helper('dompet_helper');  
 		$this->modul = 'Account';
+        login();
 	}
 	
 	public function index()
@@ -74,16 +75,17 @@ class Account extends CI_Controller {
             $data = [
                 'fullname'=>post('fullname'), 
                 'username'=>post('username'), 
-                'password'=>md5(post('password')), 
+                'password'=>md5(post('password_new')), 
                 'type'=>post('type'), 
             ];
+            
         }else{
             $data = [
                 'fullname'=>post('fullname'), 
                 'username'=>post('username'), 
                 'type'=>post('type'),  
             ];
-        }
+        } 
 
         $store = $this->db->where(array('id'=>$id));
         $store = $this->db->update('account',$data);
