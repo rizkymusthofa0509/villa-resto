@@ -24,7 +24,7 @@
 
     <form class="user" method="POST" action="<?= base_url() ?>administrator/account/update/<?= $detail['id'] ?>">
         <div class="form-group">
-            <label>Nama Lengkap</label>
+            <label>Tipe User</label>
             <select class="form-control" name="type" id="">
                 <option value="user" <?php if($detail['type']=='user'){echo 'selected';} ?>>User</option>
                 <option value="admin" <?php if($detail['type']=='admin'){echo 'selected';} ?>>Administrator</option>

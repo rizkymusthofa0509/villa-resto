@@ -24,7 +24,7 @@
 
     <form class="user" method="POST" action="<?= base_url() ?>administrator/account/store">
         <div class="form-group">
-            <label>Nama Lengkap</label>
+            <label>Tipe User</label>
             <select class="form-control" name="type" id="type" required>
                 <option value="user" >User</option>
                 <option value="admin">Administrator</option>
