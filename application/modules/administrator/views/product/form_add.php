@@ -43,7 +43,7 @@
         </div> 
         <div class="form-group">
             <label>Harga</label>
-            <input type="text" class="form-control form-control-user"
+            <input type="number" class="form-control form-control-user"
                 id="price" name="price" aria-describedby="emailHelp"
                 placeholder="Masukan Harga">
         </div> 

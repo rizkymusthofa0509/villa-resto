@@ -44,13 +44,13 @@
         </div> 
         <div class="form-group">
             <label>Harga</label>
-            <input type="text" class="form-control form-control-user"
+            <input type="number" class="form-control form-control-user"
                 id="price" name="price" aria-describedby="emailHelp"
                 placeholder="Masukan Harga" value="<?= $detail['price'] ?>">
         </div> 
         <div class="form-group">
             <label>Gambar</label>
-            <input type="text" name="image_old" value="<?= $detail['image'] ?>" />
+            <input type="hidden" name="image_old" value="<?= $detail['image'] ?>" />
             <input type="file" class="form-control form-control-user"
                 id="image" name="image" aria-describedby="emailHelp"
                 placeholder="Masukan Gambar" value="">
