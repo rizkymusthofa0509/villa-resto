@@ -18,7 +18,7 @@ class Order extends CI_Controller {
 	    /*Load session*/
 	    $this->load->library('session');
 	    /*Model*/ 
-	    $this->load->model(array('M_account','M_product'));
+	    $this->load->model(array('M_account','M_product','M_transaction','M_transaction_detail'));
 
 
 	    $this->base_url = 'apps';
@@ -26,7 +26,28 @@ class Order extends CI_Controller {
 	
 	public function index()
 	{ 
-		$data['product'] = $this->M_product->getAll();
+		if ($this->input->get('status')!=''){
+			switch ($this->input->get('status')) {
+				case 'reject':
+					$data['list'] = $this->M_transaction->getStatus(['reject']);
+				break;
+				case 'dipesan':
+					$data['list'] = $this->M_transaction->getStatus(['dipesan','diproses']);
+				break;
+				case 'diproses':
+					$data['list'] = $this->M_transaction->getStatus(['dipesan','diproses']);
+				break;
+				case 'selesai':
+					$data['list'] = $this->M_transaction->getStatus(['selesai']);
+				break;
+				
+				default:
+					$data['list'] = $this->M_transaction->getStatus(['dipesan','diproses']);
+				break;
+			}
+		}else{
+			$data['list'] = $this->M_transaction->getStatus(['dipesan','diproses']);
+		} 
 		$this->load->view('order/order',$data); 
 	}
 

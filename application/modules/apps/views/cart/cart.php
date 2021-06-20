@@ -37,77 +37,64 @@
          </div>
       </div>
       <div class="osahan-body">
-         <div class="cart-items bg-white position-relative border-bottom">
-            <a href="product_details.html" class="position-absolute">
-            <span class="badge badge-danger m-3">10%</span>
-            </a>
-            <div class="d-flex  align-items-center p-3">
-               <a href="product_details.html"><img src="img/cart/g1.png" class="img-fluid"></a>
-               <a href="product_details.html" class="ml-3 text-dark text-decoration-none w-100">
-                  <h5 class="mb-1">Bread</h5>
-                  <p class="text-muted mb-2"><del class="text-success mr-1">$1.20kg</del> $0.98/kg</p>
-                  <div class="d-flex align-items-center">
-                     <p class="total_price font-weight-bold m-0">$2.82</p>
-                     <div class="input-group input-spinner ml-auto cart-items-number">
-                        <div class="input-group-prepend">
-                           <button class="btn btn-success btn-sm" type="button" id="button-plus"> + </button>
-                        </div>
-                        <input type="text" class="form-control" value="1">
-                        <div class="input-group-append">
-                           <button class="btn btn-success btn-sm" type="button" id="button-minus"> − </button>
-                        </div>
+         <?php
+            foreach ($cart->result() as $data ) {
+               ?>
+                  <div class="cart-items bg-white position-relative border-bottom"> 
+                     <div class="d-flex  align-items-center p-3">
+                        <a href="#"><img src="<?= base_url() ?>assets/product/<?= $data->prod_image ?>" class="img-fluid"></a>
+                        <a href="#" class="ml-3 text-dark text-decoration-none w-100">
+                           <h5 class="mb-1"><?= $data->prod_name ?></h5>
+                           <p class="text-muted mb-2"><?= rp($data->prod_price) ?></p>
+                           <div class="d-flex align-items-center">
+                           <input onkeyup="update_pesanan(this,'notes',<?= $data->id ?>)" placeholder="Tambahkan catatan" type="text" class="form-control" id="notes" name="notes" aria-describedby="notes">
+                              <div class="input-group input-spinner ml-auto cart-items-number">
+                                 <div class="input-group-prepend">
+                                    <button onclick="update_qty('+',<?= $data->id ?>)" class="btn btn-success btn-sm" type="button" id="button-plus"> + </button>
+                                 </div>
+                                 <input id="qty_<?= $data->id ?>" onkeyup="update_pesanan(this,'qty',<?= $data->id ?>)" type="text" class="form-control" value="<?= $data->qty ?>">
+                                 <div class="input-group-append">
+                                    <button onclick="update_qty('-',<?= $data->id ?>)" class="btn btn-success btn-sm" type="button" id="button-minus"> − </button>
+                                 </div>
+                              </div>
+                           </div>
+                        </a>
                      </div>
                   </div>
-               </a>
+               <?php
+            }
+         ?>
+
+         <div class="cart-items bg-white position-relative border-bottom"> 
+            <div class="d-flex  align-items-center p-3"> 
+               <input onkeyup="update_transaksi(this,'name',<?= session('TOKEN') ?>)" placeholder="Nama Pemesan" type="text" class="form-control" id="notes" name="notes" aria-describedby="notes" required> 
+                
             </div>
          </div>
-         <div class="cart-items bg-white position-relative border-bottom">
-            <div class="d-flex  align-items-center p-3">
-               <a href="product_details.html"><img src="img/cart/g2.png" class="img-fluid"></a>
-               <a href="product_details.html" class="ml-3 text-dark text-decoration-none w-100">
-                  <h5 class="mb-1">Spinach</h5>
-                  <p class="text-muted mb-2"><del class="text-success mr-1">$1.20kg</del> $0.98/kg</p>
-                  <div class="d-flex align-items-center">
-                     <p class="total_price font-weight-bold m-0">$3.82</p>
-                     <div class="input-group input-spinner ml-auto cart-items-number">
-                        <div class="input-group-prepend">
-                           <button class="btn btn-success btn-sm" type="button" id="button-plus"> + </button>
-                        </div>
-                        <input type="text" class="form-control" value="3">
-                        <div class="input-group-append">
-                           <button class="btn btn-success btn-sm" type="button" id="button-minus"> − </button>
-                        </div>
-                     </div>
-                  </div>
-               </a>
+         <div class="cart-items bg-white position-relative border-bottom"> 
+            <div class="d-flex  align-items-center p-3"> 
+               <select onchange="update_transaksi(this,'villa_id',<?= session('TOKEN') ?>)" name="form-control" style="width:100%;" required>
+                  <option value="">--Pilih Villa--</option>
+                  <?php 
+                     foreach ($villa->result() as $list ) {
+                        ?>
+                           <option value="<?= $list->id ?>"><?= $list->name ?></option>
+                        <?php
+                     }
+
+                  ?>
+                  
+               </select>
             </div>
          </div>
-         <div class="cart-items bg-white position-relative border-bottom">
-            <div class="d-flex  align-items-center p-3">
-               <a href="product_details.html"><img src="img/cart/g3.png" class="img-fluid"></a>
-               <a href="product_details.html" class="ml-3 text-dark text-decoration-none w-100">
-                  <h5 class="mb-1">Chilli</h5>
-                  <p class="text-muted mb-2"><del class="text-success mr-1">$1.20kg</del> $0.98/kg</p>
-                  <div class="d-flex align-items-center">
-                     <p class="total_price font-weight-bold m-0">$2.82</p>
-                     <div class="input-group input-spinner ml-auto cart-items-number">
-                        <div class="input-group-prepend">
-                           <button class="btn btn-success btn-sm" type="button" id="button-plus"> + </button>
-                        </div>
-                        <input type="text" class="form-control" value="2">
-                        <div class="input-group-append">
-                           <button class="btn btn-success btn-sm" type="button" id="button-minus"> − </button>
-                        </div>
-                     </div>
-                  </div>
-               </a>
-            </div>
-         </div>
+        
+        <?php $this->load->view('ajax');  ?>
+          
          <div class="p-3 mt-5">
-            <a href="order_address.html" class="text-decoration-none">
+            <a href="<?= base_url() ?>apps/order" class="text-decoration-none">
                <div class="rounded shadow bg-success d-flex align-items-center p-3 text-white">
                   <div class="more">
-                     <h6 class="m-0">Subtotal $8.52</h6>
+                     <h6 class="m-0">Subtotal <font id="subTotal"></font></h6>
                      <p class="small m-0">Proceed to checkout</p>
                   </div>
                   <div class="ml-auto"><i class="icofont-simple-right"></i></div>
@@ -118,21 +105,21 @@
       <!-- Footer -->
       <div class="osahan-menu-fotter fixed-bottom bg-white text-center border-top">
          <div class="row m-0">
-            <a href="<?= base_url() ?>apps/" class="text-dark small col font-weight-bold text-decoration-none p-2 selected">
-               <p class="h5 m-0"><i class="text-success icofont-grocery"></i></p>
+            <a href="<?= base_url() ?>apps/home" class="text-muted small col font-weight-bold text-decoration-none p-2">
+               <p class="h5 m-0"><i class=" icofont-grocery"></i></p>
                Shop
             </a>
-            <a href="<?= base_url() ?>apps/" class="text-muted col small text-decoration-none p-2">
+            <a href="<?= base_url() ?>apps/cart" class="text-muted col small text-decoration-none p-2">
                <p class="h5 m-0"><i class="icofont-cart"></i></p>
                Cart
             </a>
-            <a href="<?= base_url() ?>apps/" class="text-muted col small text-decoration-none p-2">
+            <a href="<?= base_url() ?>apps/order" class="text-muted col small text-decoration-none p-2">
                <p class="h5 m-0"><i class="icofont-bag"></i></p>
                My Order
             </a>
-            <a href="<?= base_url() ?>apps/" class="text-muted small col text-decoration-none p-2">
+            <a href="<?= base_url() ?>apps/auth/logout" class="text-muted small col text-decoration-none p-2">
                <p class="h5 m-0"><i class="icofont-user"></i></p>
-               Account
+               Logout
             </a>
          </div>
       </div>

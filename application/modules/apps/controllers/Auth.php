@@ -33,12 +33,31 @@ class Auth extends CI_Controller {
 	public function handler()
 	{
 		$username = post('username');
-		$password = post('password'); 
-		$session = array(
-							'id'=>1, 
-						);
-		$this->session->set_userdata($session); 
-		redirect('apps');
+		$password = md5(post('password'));  
+
+		$cek = $this->db->query("SELECT * FROM account WHERE username='$username' AND password='$password' ");
+		if ($cek->num_rows() > 0){
+			$data = $cek->row_array();
+            $session =  [
+                'id'=>$data['id'],
+                'fullname'=>$data['fullname'],
+                'TOKEN'=>time(),
+            ];
+			$this->session->set_userdata($session);
+			if ($data['type']=='admin'){
+				redirect('administrator');
+			}else{
+				redirect('apps');
+			}
+			
+		}else{
+			set_flashdata('info','
+                        <div class="alert alert-danger" role="alert">
+                            Username / Password salah.
+                        </div>
+                    ');
+			redirect('auth');
+		}
 	}
 
 	public function logout()

@@ -16,6 +16,11 @@
 			redirect('administrator/auth');
 		} 
 	}
+
+	function created_at()
+	{
+		return DATE("Y-m-d H:i:s");
+	}
 	function set_flashdata($name='',$value='')
 	{
 		$ci     =& get_instance();

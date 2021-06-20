@@ -30,8 +30,7 @@ class Auth extends CI_Controller {
     public function handler()
     {
         $username = post('username');
-		$password = md5(post('password')); 
-		echo $username.' '.$password;
+		$password = md5(post('password'));  
 
 		$cek = $this->db->query("SELECT * FROM account WHERE username='$username' AND password='$password' ");
 		if ($cek->num_rows() > 0){

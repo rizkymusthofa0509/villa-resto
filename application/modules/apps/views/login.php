@@ -40,8 +40,8 @@
             <p class="small">Sign in to Continue.</p>
             <form action="<?= base_url() ?>apps/auth/handler" method="POST">
                <div class="form-group">
-                  <label for="username">Email</label>
-                  <input placeholder="Enter Email" type="email" class="form-control" id="username" name="username" aria-describedby="emailHelp">
+                  <label for="username">Username</label>
+                  <input placeholder="Enter username" type="text" class="form-control" id="username" name="username" aria-describedby="emailHelp">
                </div>
                <div class="form-group">
                   <label for="password">Password</label>

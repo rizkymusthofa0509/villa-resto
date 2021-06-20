@@ -80,9 +80,7 @@
                      </a>
                   </div>
                </div>
-               <div class="p-3">
-                 
-                  
+               <div class="p-3">  
                   <p class="font-weight-bold mb-2">Detail</p>
                   <p class="text-muted small"><?= $detail['description'] ?></p>
                   <p class="font-weight-bold mb-3">Mungkin anda menyukai ini.</p>
@@ -97,7 +95,7 @@
 	                                 <h6><?= $list->name ?></h6>
 	                                 <div class="d-flex align-items-center">
 	                                    <h6 class="price m-0 text-success"><?= rp($list->price) ?></h6>
-	                                 <a onclick="alert('Add to Cart');" class="btn btn-success btn-sm ml-auto">+</a>
+	                                 <a onclick="chart(<?= $list->id ?>);" class="btn btn-success btn-sm ml-auto">+</a>
 	                           </div>
 	                           </div>
 	                           </a>
@@ -109,13 +107,13 @@
             </div>
                </div>
             </div>
-            <div class="fixed-bottom pd-f bg-white d-flex align-items-center border-top">
-               <a href="cart.html" class="btn-warning py-3 px-5 h4 m-0"><i class="icofont-cart"></i></a>
-               <a href="cart.html" class="btn btn-success btn-block">Buy</a>
+            <div class="fixed-bottom pd-f bg-white d-flex align-items-center border-top"> 
+                <a href="<?= base_url()?>apps/cart" class="btn-warning py-3 px-5 h4 m-0"><i class="icofont-cart"></i></a>
+               <a  onclick="chart(<?= $detail['id'] ?>);" href="#" class="btn btn-success btn-block">Buy</a>
             </div>
          </div>
       </div>
-       
+      <?php $this->load->view('ajax') ?> 
       <!-- Bootstrap core JavaScript -->
       <script src="<?= base_url() ?>temp/frontend/vendor/jquery/jquery.min.js"></script>
       <script src="<?= base_url() ?>temp/frontend/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

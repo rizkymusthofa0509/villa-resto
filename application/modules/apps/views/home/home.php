@@ -72,7 +72,7 @@
                                      </div>
 	                                 <div class="d-flex align-items-center">
 	                                    <h6 class="price m-0 text-success"><?= rp($list->price) ?></h6>
-	                                 <a onclick="alert('Add to Cart');" class="btn btn-success btn-sm ml-auto">+</a>
+	                                 <a onclick="chart(<?= $list->id ?>);" class="btn btn-success btn-sm ml-auto">+</a>
 	                           </div>
 	                           </div>
 	                           </a>
@@ -89,24 +89,26 @@
       <!-- Footer -->
       <div class="osahan-menu-fotter fixed-bottom bg-white text-center border-top">
          <div class="row m-0">
-            <a href="<?= base_url() ?>apps/" class="text-dark small col font-weight-bold text-decoration-none p-2 selected">
-               <p class="h5 m-0"><i class="text-success icofont-grocery"></i></p>
+            <a href="<?= base_url() ?>apps/home" class="text-muted small col font-weight-bold text-decoration-none p-2">
+               <p class="h5 m-0"><i class=" icofont-grocery"></i></p>
                Shop
             </a>
-            <a href="<?= base_url() ?>apps/" class="text-muted col small text-decoration-none p-2">
+            <a href="<?= base_url() ?>apps/cart" class="text-muted col small text-decoration-none p-2">
                <p class="h5 m-0"><i class="icofont-cart"></i></p>
                Cart
             </a>
-            <a href="<?= base_url() ?>apps/" class="text-muted col small text-decoration-none p-2">
+            <a href="<?= base_url() ?>apps/order" class="text-muted col small text-decoration-none p-2">
                <p class="h5 m-0"><i class="icofont-bag"></i></p>
                My Order
             </a>
-            <a href="<?= base_url() ?>apps/" class="text-muted small col text-decoration-none p-2">
+            <a href="<?= base_url() ?>apps/auth/logout" class="text-muted small col text-decoration-none p-2">
                <p class="h5 m-0"><i class="icofont-user"></i></p>
-               Account
+               Logout
             </a>
          </div>
       </div>
+
+      <?php $this->load->view('ajax'); ?>
       
       <!-- Bootstrap core JavaScript -->
       <script src="<?= base_url() ?>temp/frontend/vendor/jquery/jquery.min.js"></script>
