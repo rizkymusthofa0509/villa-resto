@@ -21,6 +21,7 @@ class Detail extends CI_Controller {
 	    $this->load->model(array('M_account','M_product')); 
 
 	    $this->base_url = 'apps';
+		login_app();
 	}
 	
 	public function index($id='')

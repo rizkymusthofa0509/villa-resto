@@ -17,6 +17,13 @@
 		} 
 	}
 
+	function login_app()
+	{
+		if (empty(session('TOKEN'))){
+			redirect('apps/auth');
+		} 
+	}
+
 	function created_at()
 	{
 		return DATE("Y-m-d H:i:s");

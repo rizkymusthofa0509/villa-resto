@@ -21,7 +21,7 @@ class Auth extends CI_Controller {
 	    $this->load->model(array('M_account'));
 
 
-	    $this->base_url = 'apps';
+	    $this->base_url = 'apps'; 
 	}
 	 
 	public function index()

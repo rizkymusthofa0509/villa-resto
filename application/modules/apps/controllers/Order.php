@@ -22,6 +22,7 @@ class Order extends CI_Controller {
 
 
 	    $this->base_url = 'apps';
+		login_app();
 	}
 	
 	public function index()
