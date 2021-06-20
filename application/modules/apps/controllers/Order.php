@@ -36,11 +36,11 @@ class Order extends CI_Controller {
 					$data['list'] = $this->M_transaction->getStatus(['dipesan','diproses']);
 				break;
 				case 'diproses':
-					$data['list'] = $this->M_transaction->getStatus(['dipesan','diproses']);
+					$data['list'] = $this->M_transaction->getStatus(['dipesan','diproses','dikirim']);
 				break;
 				case 'selesai':
 					$data['list'] = $this->M_transaction->getStatus(['selesai']);
-				break;
+				break; 
 				
 				default:
 					$data['list'] = $this->M_transaction->getStatus(['dipesan','diproses']);

@@ -30,7 +30,12 @@ class Cart extends CI_Controller {
 		
 		$token = session('TOKEN');
 		$cek_token = $this->db->query("SELECT * FROM `transaction` WHERE TOKEN='$token' ")->row_array();
-		$data['cart'] = $this->M_transaction_detail->getWhere($cek_token['id']);
+		if (!empty($cek_token['id'])){
+			$id = $cek_token['id'];
+		}else{
+			$id = 0;
+		}
+		$data['cart'] = $this->M_transaction_detail->getWhere($id);
 		$data['villa'] = $this->db->query("SELECT * FROM villa");
 		$this->load->view('cart/cart',$data); 
 	}
@@ -59,7 +64,7 @@ class Cart extends CI_Controller {
 			$data_transaksi = [
 				'name'=>'',
 				'villa_id'=>'',
-				'status'=>'',
+				'status'=>'dipesan',
 				'TOKEN'=>session('TOKEN'),
 				'created_at'=>created_at(),
 				'updated_at'=>created_at(),

@@ -38,6 +38,7 @@
       </div>
       <div class="osahan-body">
          <?php
+         if ($cart->num_rows() > 0){
             foreach ($cart->result() as $data ) {
                ?>
                   <div class="cart-items bg-white position-relative border-bottom"> 
@@ -63,6 +64,8 @@
                   </div>
                <?php
             }
+         }
+            
          ?>
 
          <div class="cart-items bg-white position-relative border-bottom"> 
