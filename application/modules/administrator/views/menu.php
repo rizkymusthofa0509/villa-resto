@@ -83,4 +83,17 @@
         </div>
     </li> 
 
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#data_account"
+            aria-expanded="true" aria-controls="data_account">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Master data</span>
+        </a>
+        <div id="data_account" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded"> 
+                <a class="collapse-item" href="<?= base_url() ?>administrator/account">Account</a> 
+            </div>
+        </div>
+    </li> 
+
 </ul>
