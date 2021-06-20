@@ -33,7 +33,7 @@
       <div class="osahan-home-page">
          <div class="border-bottom p-3">
             <div class="title d-flex align-items-center">
-               <a href="home.html" class="text-decoration-none text-dark d-flex align-items-center">
+               <a href="<?= base_url() ?>apps/home" class="text-decoration-none text-dark d-flex align-items-center">
                   <img class="osahan-logo mr-2" src="<?= base_url() ?>temp/frontend/img/logo.svg">
                   <h4 class="font-weight-bold text-success m-0"><?= $this->db->APP_NAME ?></h4>
                </a> 
