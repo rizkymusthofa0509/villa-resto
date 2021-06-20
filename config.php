@@ -1,31 +1,18 @@
 <?php
 /*
 -- ---------------------------------------------------------------
--- JOB CAREER 
--- CREATED BY : RIZKY MUSTHOFA
 -- COPYRIGHT  : Copyright (c) 2020 
 -- LICENSE    : http://opensource.org/licenses/MIT  MIT License
--- CREATED ON : 2020-06-09
+-- CREATED ON : 2021
 -- UPDATED ON : V.1
--- APP NAME   : JOB CAREER
+-- APP NAME   : VILLA RESTO
 -- ---------------------------------------------------------------
-*/
-	// $hostname = 'localhost';
-	// $username = 'root';
-	// $password = 'mult1f46';
-	// $database = 'db_sso';
-
+*/ 
 	$hostname = 'localhost';
 	$username = 'rizky';
 	$password = 'rizky';
 	$database = 'db_resto';
 
-
-	// $hostname = 'localhost';
-	// $username = 'poinuid1';
-	// $password = 'poi92509';
-	// $database = 'poinuid1_bumdes';
-
-
+ 
  
 ?>
