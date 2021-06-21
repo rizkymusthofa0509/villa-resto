@@ -32,7 +32,7 @@
         <div class="form-group">
             <label>Lokasi</label>
             <input type="text" class="form-control form-control-user"
-                id="location" name="location" placeholder="Masukan Lokasi">
+                id="penyewa" name="penyewa" placeholder="Masukan Lokasi">
         </div> 
         <button class="btn btn-primary btn-user btn-block">Simpan</button>
     </form>

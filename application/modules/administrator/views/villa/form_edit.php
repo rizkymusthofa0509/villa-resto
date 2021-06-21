@@ -30,9 +30,9 @@
                 placeholder="Masukan Nama Villa..." value="<?= $detail['name'] ?>">
         </div>
         <div class="form-group">
-            <label>Lokasi</label>
+            <label>Nama Penyewa</label>
             <input type="text" class="form-control form-control-user"
-                id="location" name="location" placeholder="Masukan Lokasi" value="<?= $detail['location'] ?>">
+                id="penyewa" name="penyewa" placeholder="Masukan Lokasi" value="<?= $detail['penyewa'] ?>">
         </div> 
         <button class="btn btn-primary btn-user btn-block">Simpan</button>
     </form>
