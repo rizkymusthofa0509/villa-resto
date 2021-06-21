@@ -38,7 +38,7 @@
                   <h4 class="font-weight-bold text-success m-0"><?= $this->db->APP_NAME ?></h4>
                </a> 
             </div>
-            <a href="search.html" class="text-decoration-none">
+            <a href="#" class="text-decoration-none">
                <div class="input-group mt-3 rounded shadow-sm overflow-hidden bg-white">
                   <div class="input-group-prepend">
                      <button class="border-0 btn btn-outline-secondary text-success bg-white"><i class="icofont-search"></i></button>
