@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jun 20, 2021 at 11:31 PM
+-- Generation Time: Jun 21, 2021 at 12:19 AM
 -- Server version: 5.7.30
 -- PHP Version: 7.4.9
 
@@ -159,14 +159,14 @@ INSERT INTO `transaction_detail` (`id`, `transaction_id`, `product_id`, `qty`, `
 CREATE TABLE `villa` (
   `id` int(11) UNSIGNED NOT NULL,
   `name` varchar(255) DEFAULT NULL,
-  `location` text
+  `penyewa` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `villa`
 --
 
-INSERT INTO `villa` (`id`, `name`, `location`) VALUES
+INSERT INTO `villa` (`id`, `name`, `penyewa`) VALUES
 (6, 'Jeruk', 'jakarta'),
 (8, 'Anggrek', 'Jakarta'),
 (9, 'Kemang', 'jakarta Selatan');

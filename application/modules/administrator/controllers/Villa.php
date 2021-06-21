@@ -43,7 +43,7 @@ class Villa extends CI_Controller {
 	{ 
 		$data = [
             'name'=>post('name'),
-            'location'=>post('location'),
+            'penyewa'=>post('penyewa'),
         ];
 
         $store = $this->db->insert('villa',$data);
@@ -69,7 +69,7 @@ class Villa extends CI_Controller {
 	{ 
 		$data = [
             'name'=>post('name'),
-            'location'=>post('location'),
+            'penyewa'=>post('penyewa'),
         ];
 
         $store = $this->db->where(array('id'=>$id));

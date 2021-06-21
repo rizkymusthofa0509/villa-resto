@@ -26,7 +26,7 @@
                     <tr>
                         <th width="1%">No</th>
                         <th>Villa</th> 
-                        <th>Lokasi</th> 
+                        <th>Penyewa</th> 
                         <th width="10%">Action</th> 
                     </tr>
                 </thead> 
@@ -38,7 +38,7 @@
                                 <tr>
                                     <td><?=$no++?></td>
                                     <td><?= $data->name ?></td> 
-                                    <td><?= $data->location ?></td> 
+                                    <td><?= $data->penyewa ?></td> 
                                     <td>
                                         
                                         <a href="<?= base_url() ?>administrator/villa/edit/<?= $data->id ?>" class="btn btn-info btn-circle btn-sm">
