@@ -30,9 +30,9 @@
                 placeholder="Masukan Nama Villa...">
         </div>
         <div class="form-group">
-            <label>Lokasi</label>
+            <label>Nama Penyewa</label>
             <input type="text" class="form-control form-control-user"
-                id="penyewa" name="penyewa" placeholder="Masukan Lokasi">
+                id="penyewa" name="penyewa" placeholder="Masukan Nama Penyewa">
         </div> 
         <button class="btn btn-primary btn-user btn-block">Simpan</button>
     </form>
