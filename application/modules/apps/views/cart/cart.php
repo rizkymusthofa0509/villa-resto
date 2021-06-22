@@ -121,7 +121,7 @@
          <div class="row m-0">
             <a href="<?= base_url() ?>apps/home" class="text-muted small col font-weight-bold text-decoration-none p-2">
                <p class="h5 m-0"><i class=" icofont-grocery"></i></p>
-               Shop
+               Menu
             </a>
             <a href="<?= base_url() ?>apps/cart" class="text-muted col small text-decoration-none p-2">
                <p class="h5 m-0"><i class="icofont-cart"></i></p>
