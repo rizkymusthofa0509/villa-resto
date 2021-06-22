@@ -3,7 +3,7 @@
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
         <div class="sidebar-brand-icon rotate-n-15">
-            <i class="fas fa-desktop"></i>
+            <i class="fas fa-utensils"></i>
         </div>
         <div class="sidebar-brand-text mx-3"><?= $this->db->APP_NAME ?></div>
     </a>
