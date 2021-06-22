@@ -37,6 +37,11 @@ class Auth extends CI_Controller {
 			if ($data['type']=='user'){
 				redirect('apps');
 			}else{
+				set_flashdata('info','
+                        <div class="alert alert-danger" role="alert">
+                            Anda tidak memiliki akses
+                        </div>
+                    ');
 				redirect('apps/auth');
 			}
 			
