@@ -93,7 +93,7 @@
          
         <?php $this->load->view('ajax');  ?> 
          <div class="p-3 mt-5">
-            <a href="<?= base_url() ?>apps/order" class="text-decoration-none">
+            <a href="<?= base_url() ?>apps/order?status=diproses" class="text-decoration-none">
                <div class="rounded shadow bg-success d-flex align-items-center p-3 text-white">
                   <div class="more">
                      <h6 class="m-0">Subtotal <font id="subTotal"><?= rp($total) ?></font></h6>
