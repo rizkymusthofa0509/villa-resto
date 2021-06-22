@@ -22,7 +22,7 @@
     <link href="<?= base_url() ?>temp/backend/css/sb-admin-2.min.css" rel="stylesheet">
     <style>
     .bg-login-image{
-        background-image: url("<?= base_url() ?>/assets/login.jpeg");
+        background-image: url("<?= base_url() ?>/assets/login-bg.jpeg");
         background-color: #cccccc;
     }
     </style>
