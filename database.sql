@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jun 21, 2021 at 12:19 AM
+-- Generation Time: Jun 22, 2021 at 03:16 AM
 -- Server version: 5.7.30
 -- PHP Version: 7.4.9
 
@@ -25,7 +25,7 @@ CREATE TABLE `account` (
   `username` varchar(255) DEFAULT NULL,
   `password` text,
   `fullname` varchar(255) DEFAULT NULL,
-  `type` enum('admin','user') DEFAULT NULL
+  `type` enum('admin','user','receptionis') DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -36,7 +36,8 @@ INSERT INTO `account` (`id`, `username`, `password`, `fullname`, `type`) VALUES
 (1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'Administrator', 'admin'),
 (5, 'anggrek', 'd41d8cd98f00b204e9800998ecf8427e', 'anggrek', 'user'),
 (6, 'mangga', '5ac590c94ad91a0faa947c9aa05604b5', 'mangga', 'user'),
-(7, 'jeruk', '479aab68c5ef42e325a732bc2cab18eb', 'jeruk', 'user');
+(7, 'jeruk', '479aab68c5ef42e325a732bc2cab18eb', 'jeruk', 'user'),
+(8, 'user', '21232f297a57a5a743894a0e4a801fc3', 'Receptionis', 'receptionis');
 
 -- --------------------------------------------------------
 
@@ -116,7 +117,8 @@ INSERT INTO `transaction` (`id`, `name`, `villa_id`, `status`, `TOKEN`, `created
 (8, 'Rizky Musthofa', 6, '', '1624229121', '2021-06-20 22:45:43', '2021-06-20 22:45:43'),
 (9, 'as', 6, '', '1624230114', '2021-06-20 23:05:09', '2021-06-20 23:05:09'),
 (10, 'as', 8, 'reject', '1624230371', '2021-06-20 23:06:14', '2021-06-20 23:06:14'),
-(11, 'kiki', 6, 'selesai', '1624230475', '2021-06-20 23:07:57', '2021-06-20 23:07:57');
+(11, 'kiki', 6, 'selesai', '1624230475', '2021-06-20 23:07:57', '2021-06-20 23:07:57'),
+(12, '', 0, 'dipesan', '1624330392', '2021-06-22 03:00:35', '2021-06-22 03:00:35');
 
 -- --------------------------------------------------------
 
@@ -148,7 +150,8 @@ INSERT INTO `transaction_detail` (`id`, `transaction_id`, `product_id`, `qty`, `
 (12, 8, 3, 1, 0, '', '2021-06-20 22:45:43', '2021-06-20 22:45:43'),
 (13, 9, 1, 1, 0, 'ass', '2021-06-20 23:05:09', '2021-06-20 23:05:09'),
 (14, 10, 1, 1, 15000, 'ass', '2021-06-20 23:06:14', '2021-06-20 23:06:14'),
-(15, 11, 1, 1, 15000, 'ass', '2021-06-20 23:07:57', '2021-06-20 23:07:57');
+(15, 11, 1, 1, 15000, 'ass', '2021-06-20 23:07:57', '2021-06-20 23:07:57'),
+(16, 12, 1, 1, 15000, '', '2021-06-22 03:00:35', '2021-06-22 03:00:35');
 
 -- --------------------------------------------------------
 
@@ -219,31 +222,31 @@ ALTER TABLE `villa`
 -- AUTO_INCREMENT for table `account`
 --
 ALTER TABLE `account`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `product_category`
 --
 ALTER TABLE `product_category`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `transaction`
 --
 ALTER TABLE `transaction`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `transaction_detail`
 --
 ALTER TABLE `transaction_detail`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `villa`
