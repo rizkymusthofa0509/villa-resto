@@ -1,15 +1,5 @@
 <?php
-/*
--- ---------------------------------------------------------------
--- JOB CAREER 
--- CREATED BY : RIZKY MUSTHOFA
--- COPYRIGHT  : Copyright (c) 2020 
--- LICENSE    : http://opensource.org/licenses/MIT  MIT License
--- CREATED ON : 2021
--- UPDATED ON : V.1
--- APP NAME   : VILLA RESTO
--- ---------------------------------------------------------------
-*/
+ 
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Transaction extends CI_Controller {
     function __construct() {
