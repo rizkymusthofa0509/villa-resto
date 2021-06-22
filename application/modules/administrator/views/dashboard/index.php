@@ -39,7 +39,7 @@
                             <div class="h5 mb-0 font-weight-bold text-gray-800"><?= rp($diproses->num_rows()) ?></div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                            <i class="fas fa-spinner fa-2x text-gray-300"></i>
                         </div>
                     </div>
                 </div>
@@ -57,7 +57,7 @@
                             <div class="h5 mb-0 font-weight-bold text-gray-800"><?= rp($dikirim->num_rows()) ?></div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                            <i class="fas fa-paper-plane fa-2x text-gray-300"></i>
                         </div>
                     </div>
                 </div>
@@ -75,7 +75,7 @@
                             <div class="h5 mb-0 font-weight-bold text-gray-800"><?= rp($selesai->num_rows()) ?></div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                            <i class="fas fa-check-circle fa-2x text-gray-300"></i>
                         </div>
                     </div>
                 </div>
