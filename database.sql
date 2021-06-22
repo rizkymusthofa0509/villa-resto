@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jun 22, 2021 at 03:16 AM
+-- Generation Time: Jun 22, 2021 at 04:48 AM
 -- Server version: 5.7.30
 -- PHP Version: 7.4.9
 
@@ -25,7 +25,7 @@ CREATE TABLE `account` (
   `username` varchar(255) DEFAULT NULL,
   `password` text,
   `fullname` varchar(255) DEFAULT NULL,
-  `type` enum('admin','user','receptionis') DEFAULT NULL
+  `type` enum('admin','user','receptionis','kasir') DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
