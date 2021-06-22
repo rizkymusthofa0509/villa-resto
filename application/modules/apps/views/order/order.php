@@ -31,7 +31,7 @@
       </div>
       <div class="osahan-order">
          <div class="order-menu">
-            <h5 class="font-weight-bold p-3 d-flex align-items-center">My Order <a class="toggle ml-auto" href="#"><i class="icofont-navigation-menu"></i></a></h5>
+            <h5 class="font-weight-bold p-3 d-flex align-items-center">My Order </h5>
             <div class="row m-0 text-center">
                <div class="col pb-2 <?php if(($this->input->get('status')=='') OR ($this->input->get('status')=='selesai')){echo 'border-success';}  ?> border-bottom">
                   <a href="<?= base_url() ?>apps/order?status=selesai" class="text-<?php if(($this->input->get('status')=='' OR ($this->input->get('status')=='selesai'))){echo 'success';}else{echo 'muted';}  ?> font-weight-bold text-decoration-none">Completed</a>
