@@ -32,7 +32,7 @@
         <div class="form-group">
             <label>Nama Penyewa</label>
             <input type="text" class="form-control form-control-user"
-                id="penyewa" name="penyewa" placeholder="Masukan Lokasi" value="<?= $detail['penyewa'] ?>">
+                id="penyewa" name="penyewa" placeholder="Masukan Nama Penyewa" value="<?= $detail['penyewa'] ?>">
         </div> 
         <button class="btn btn-primary btn-user btn-block">Simpan</button>
     </form>

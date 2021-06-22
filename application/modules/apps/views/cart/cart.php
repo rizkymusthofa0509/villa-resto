@@ -33,7 +33,6 @@
       <div class="p-3 border-bottom">
          <div class="d-flex align-items-center">
             <h5 class="font-weight-bold m-0">Cart</h5>
-            <!-- <a class="toggle ml-auto" href="#"><i class="icofont-navigation-menu"></i></a> -->
          </div>
       </div>
       <div class="osahan-body">

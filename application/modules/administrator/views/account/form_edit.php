@@ -36,7 +36,7 @@
             <label>Nama Account</label>
             <input type="text" class="form-control form-control-user"
                 id="fullname" name="fullname" aria-describedby="emailHelp"
-                placeholder="Masukan Nama Lengkap..." value="<?= $detail['fullname'] ?>">
+                placeholder="Masukan Nama Account..." value="<?= $detail['fullname'] ?>">
         </div> 
         <div class="form-group">
             <label>Username</label>
