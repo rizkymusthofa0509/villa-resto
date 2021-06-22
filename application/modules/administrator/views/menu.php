@@ -85,7 +85,7 @@
         }
     ?>
     <?php
-        if ((session('type')=='admin') OR (session('type')=='kasir')){
+        if ((session('type')=='admin') OR (session('type')=='kasir') OR (session('type')=='receptionis')){
             ?>
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#data_villa"
