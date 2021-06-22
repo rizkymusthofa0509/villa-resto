@@ -35,7 +35,7 @@
             <div class="title d-flex align-items-center">
                <a href="<?= base_url() ?>apps/home" class="text-decoration-none text-dark d-flex align-items-center">
                   <img class="osahan-logo mr-2" src="<?= base_url() ?>assets/logo.png">
-                  <h4 class="font-weight-bold text-success m-0"><?= $this->db->APP_NAME ?></h4>
+                  <h4 class="font-weight-bold text-primary m-0"><?= $this->db->APP_NAME ?></h4>
                </a> 
             </div>
             <a href="#" class="text-decoration-none">
