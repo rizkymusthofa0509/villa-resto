@@ -33,7 +33,7 @@
             </select>
         </div> 
         <div class="form-group">
-            <label>Nama Lengkap</label>
+            <label>Nama Account</label>
             <input type="text" class="form-control form-control-user"
                 id="fullname" name="fullname" aria-describedby="emailHelp"
                 placeholder="Masukan Nama Lengkap..." value="<?= $detail['fullname'] ?>">

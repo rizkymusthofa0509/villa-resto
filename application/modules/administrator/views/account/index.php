@@ -25,7 +25,7 @@
                 <thead>
                     <tr>
                         <th width="1%">No</th>
-                        <th>Nama Lengkap</th> 
+                        <th>Nama Account</th> 
                         <th>Username</th> 
                         <th>Account type</th> 
                         <th width="10%">Action</th> 

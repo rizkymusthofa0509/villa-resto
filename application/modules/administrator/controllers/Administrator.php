@@ -35,40 +35,9 @@ class Administrator extends CI_Controller {
 		$data['reject'] = $this->M_transaction->getStatus('reject');
 		$this->load->view('template',$data); 
 	}
-
-    public function create()
-	{ 
-		$data['title'] 	= 'Panel ';
-		$data['pages'] 	= 'category/form_add';
-		$this->load->view('template',$data); 
+	
+	public function ajax()
+	{
+		# code...
 	}
-
-    public function store()
-	{ 
-		$data['title'] 	= 'Panel ';
-		$data['pages'] 	= 'category/form_add';
-		$this->load->view('template',$data); 
-	}
-
-    public function edit($id='')
-	{ 
-		$data['title'] 	= 'Panel ';
-		$data['pages'] 	= 'category/form_edit';
-		$this->load->view('template',$data); 
-	}
-    
-    public function update()
-	{ 
-		$data['title'] 	= 'Panel ';
-		$data['pages'] 	= 'category/form_add';
-		$this->load->view('template',$data); 
-	}
-
-    public function destroy()
-	{ 
-		$data['title'] 	= 'Panel ';
-		$data['pages'] 	= 'category/form_add';
-		$this->load->view('template',$data); 
-	}
- 
 }
