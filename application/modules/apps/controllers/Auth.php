@@ -25,6 +25,15 @@ class Auth extends CI_Controller {
 		$username = post('username');
 		$password = md5(post('password'));  
 
+		if (($username=="") OR ($password=="")){
+			set_flashdata('info','
+                        <div class="alert alert-danger" role="alert">
+                            Username / Password tidak boleh kosong
+                        </div>
+                    ');
+				redirect('apps/auth');
+		}
+
 		$cek = $this->db->query("SELECT * FROM account WHERE username='$username' AND password='$password' ");
 		if ($cek->num_rows() > 0){
 			$data = $cek->row_array();
