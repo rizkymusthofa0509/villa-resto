@@ -38,7 +38,11 @@
          <div class="p-3">
             <h2 class="my-0">Welcome Back</h2>
             <p class="small">Sign in to Continue.</p>
+            <div class="col-md-12">
+                  <?= echo_flashdata('info'); ?>
+            </div> 
             <form action="<?= base_url() ?>apps/auth/handler" method="POST">
+            
                <div class="form-group">
                   <label for="username">Username</label>
                   <input placeholder="Enter username" type="text" class="form-control" id="username" name="username" aria-describedby="emailHelp">
