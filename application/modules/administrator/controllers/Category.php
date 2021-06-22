@@ -49,7 +49,7 @@ class Category extends CI_Controller {
         if ($store){
             set_flashdata('info','
                         <div class="alert alert-success" role="alert">
-                            Data Hasben Saved.
+                            Data Hasbeen Saved.
                         </div>
                     ');
             redirect('administrator/category');
@@ -76,7 +76,7 @@ class Category extends CI_Controller {
         if ($store){
             set_flashdata('info','
                         <div class="alert alert-success" role="alert">
-                            Data Hasben Updated.
+                            Data Hasbeen Updated.
                         </div>
                     ');
             redirect('administrator/category');
@@ -89,7 +89,7 @@ class Category extends CI_Controller {
         if ($destroy){
             set_flashdata('info','
                         <div class="alert alert-success" role="alert">
-                            Data Hasben Deleted.
+                            Data Hasbeen Deleted.
                         </div>
                     ');
             redirect('administrator/category');
