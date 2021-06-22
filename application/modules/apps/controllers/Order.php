@@ -30,24 +30,24 @@ class Order extends CI_Controller {
 		if ($this->input->get('status')!=''){
 			switch ($this->input->get('status')) {
 				case 'reject':
-					$data['list'] = $this->M_transaction->getStatus(['reject']);
+					$data['list'] = $this->M_transaction->getStatusOrder(['reject']);
 				break;
 				case 'dipesan':
-					$data['list'] = $this->M_transaction->getStatus(['dipesan','diproses']);
+					$data['list'] = $this->M_transaction->getStatusOrder(['dipesan','diproses']);
 				break;
 				case 'diproses':
-					$data['list'] = $this->M_transaction->getStatus(['dipesan','diproses','dikirim']);
+					$data['list'] = $this->M_transaction->getStatusOrder(['dipesan','diproses','dikirim']);
 				break;
 				case 'selesai':
-					$data['list'] = $this->M_transaction->getStatus(['selesai']);
+					$data['list'] = $this->M_transaction->getStatusOrder(['selesai']);
 				break; 
 				
 				default:
-					$data['list'] = $this->M_transaction->getStatus(['dipesan','diproses']);
+					$data['list'] = $this->M_transaction->getStatusOrder(['dipesan','diproses']);
 				break;
 			}
 		}else{
-			$data['list'] = $this->M_transaction->getStatus(['dipesan','diproses']);
+			$data['list'] = $this->M_transaction->getStatusOrder(['dipesan','diproses']);
 		} 
 		$this->load->view('order/order',$data); 
 	}

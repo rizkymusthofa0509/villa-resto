@@ -38,9 +38,10 @@ class Auth extends CI_Controller {
             $session =  [
                 'id'=>$data['id'],
                 'fullname'=>$data['fullname'],
+                'type'=>$data['type'],
             ];
 			$this->session->set_userdata($session);
-			if ($data['type']=='admin'){
+			if (($data['type']=='admin') or ($data['type']=='receptionis')){
 				redirect('administrator');
 			}else{
 				redirect('apps');

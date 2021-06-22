@@ -50,6 +50,18 @@ class M_transaction extends CI_Model{
         return $query;
     }
 
+    public function getStatusOrder($status='')
+    {
+        $this->db->select('villa.name as villa_name, transaction.*');
+        $this->db->from('transaction'); 
+        $this->db->join('villa','villa.id = transaction.villa_id','left'); 
+        $this->db->where('transaction.TOKEN',session('TOKEN'));
+        $this->db->where_in('status',$status);  
+        $this->db->order_by('transaction.id','DESC');
+        $query = $this->db->get();
+        return $query;
+    }
+
 
     public function getWhere($id='')
     {

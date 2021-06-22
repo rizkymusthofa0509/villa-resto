@@ -1,4 +1,4 @@
-<script>
+<script type="text/javascript">
     function chart(id) {
         $.ajax({
           url:'<?php echo base_url() ?>apps/cart/pesan',
@@ -45,7 +45,7 @@
           }
         });
     }
-
+    
     function total_price() {
         $.ajax({
           url:'<?php echo base_url() ?>apps/cart/total_price',
@@ -54,12 +54,12 @@
           data:{
             tipe:'tipe',
           },
-          success:function(data){
+          success:function(data){ 
             document.getElementById('subTotal').innerHTML = data;
           }
         });
     }
-
+ 
     function update_transaksi(data,field,id) {
       $.ajax({
           url:'<?php echo base_url() ?>apps/cart/update_transaksi',

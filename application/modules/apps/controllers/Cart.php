@@ -35,6 +35,10 @@ class Cart extends CI_Controller {
 		}else{
 			$id = 0;
 		}
+		$token = session('TOKEN'); 
+		$cek_token = $this->db->query("SELECT * FROM `transaction` WHERE TOKEN='$token' ")->row_array();
+		$detail    = $this->db->query("SELECT SUM(total_price) as total_price FROM `transaction_detail` WHERE transaction_id='$cek_token[id]' ")->row_array();
+		$data['total'] = $detail['total_price'];
 		$data['cart'] = $this->M_transaction_detail->getWhere($id);
 		$data['villa'] = $this->db->query("SELECT * FROM villa");
 		$this->load->view('cart/cart',$data); 
@@ -44,6 +48,7 @@ class Cart extends CI_Controller {
 	{
 		$token = post('token');
 		$id = post('id'); 
+		$product = $this->db->query("SELECT * FROM `product` WHERE id='$id'")->row_array();
 		$cek_token = $this->db->query("SELECT * FROM `transaction` WHERE TOKEN='$token' ");
 		if ($cek_token->num_rows() > 0){
 			//Pesanan Sudah ada. tinggal masukin produk
@@ -52,7 +57,7 @@ class Cart extends CI_Controller {
 				'transaction_id'=>$transaksi_id['id'],
 				'product_id'=>$id,
 				'qty'=>1,
-				'total_price'=>'0',
+				'total_price'=>$product['price'],
 				'notes'=>'',
 				'created_at'=>created_at(),
 				'updated_at'=>created_at(),
@@ -78,8 +83,8 @@ class Cart extends CI_Controller {
 				'transaction_id'=>$transaksi_id['id'],
 				'product_id'=>$id,
 				'qty'=>1,
-				'total_price'=>'0',
-				'notes'=>'ass',
+				'total_price'=>$product['price'],
+				'notes'=>'',
 				'created_at'=>created_at(),
 				'updated_at'=>created_at(),
 			];

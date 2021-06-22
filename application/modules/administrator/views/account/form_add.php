@@ -28,6 +28,7 @@
             <select class="form-control" name="type" id="type" required>
                 <option value="user" >User</option>
                 <option value="admin">Administrator</option>
+                <option value="receptionis">Receptionist</option>
             </select>
         </div> 
         <div class="form-group">

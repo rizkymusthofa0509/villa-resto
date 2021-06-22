@@ -26,49 +26,64 @@
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
+    <?php
+        if (session('type')=='admin'){
+            ?> 
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#kategori"
+                        aria-expanded="true" aria-controls="kategori">
+                        <i class="fas fa-fw fa-tag"></i>
+                        <span>Kategori</span>
+                    </a>
+                    <div id="kategori" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded"> 
+                            <a class="collapse-item" href="<?= base_url() ?>administrator/category/create">Tambah data</a>
+                            <a class="collapse-item" href="<?= base_url() ?>administrator/category">Data Kategori</a>
+                        </div>
+                    </div>
+                </li>
+                <?php
+        }
+    ?>
+    <?php
+        if (session('type')=='admin'){
+            ?> 
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#produk"
+                        aria-expanded="true" aria-controls="produk">
+                        <i class="fas fa-fw fa-cog"></i>
+                        <span>Produk</span>
+                    </a>
+                    <div id="produk" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded"> 
+                            <a class="collapse-item" href="<?= base_url() ?>administrator/product/create">Tambah data</a>
+                            <a class="collapse-item" href="<?= base_url() ?>administrator/product">Data Produk</a>
+                        </div>
+                    </div>
+                </li>
+            <?php
+        }
+    ?>
+    <?php
+        if (session('type')=='admin'){
+            ?>
 
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#kategori"
-            aria-expanded="true" aria-controls="kategori">
-            <i class="fas fa-fw fa-tag"></i>
-            <span>Kategori</span>
-        </a>
-        <div id="kategori" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded"> 
-                <a class="collapse-item" href="<?= base_url() ?>administrator/category/create">Tambah data</a>
-                <a class="collapse-item" href="<?= base_url() ?>administrator/category">Data Kategori</a>
-            </div>
-        </div>
-    </li>
-
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#produk"
-            aria-expanded="true" aria-controls="produk">
-            <i class="fas fa-fw fa-cog"></i>
-            <span>Produk</span>
-        </a>
-        <div id="produk" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded"> 
-                <a class="collapse-item" href="<?= base_url() ?>administrator/product/create">Tambah data</a>
-                <a class="collapse-item" href="<?= base_url() ?>administrator/product">Data Produk</a>
-            </div>
-        </div>
-    </li>
-
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#order_transaksi"
-            aria-expanded="true" aria-controls="order_transaksi">
-            <i class="fas fa-fw fa-cog"></i>
-            <span>Order Transaksi</span>
-        </a>
-        <div id="order_transaksi" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded"> 
-                <a class="collapse-item" href="<?= base_url() ?>administrator/transaction">Permintaan pesanan</a>
-                
-            </div>
-        </div>
-    </li> 
-
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#order_transaksi"
+                        aria-expanded="true" aria-controls="order_transaksi">
+                        <i class="fas fa-fw fa-cog"></i>
+                        <span>Order Transaksi</span>
+                    </a>
+                    <div id="order_transaksi" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded"> 
+                            <a class="collapse-item" href="<?= base_url() ?>administrator/transaction">Permintaan pesanan</a>
+                            
+                        </div>
+                    </div>
+                </li> 
+            <?php
+        }
+    ?>
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#data_villa"
             aria-expanded="true" aria-controls="data_villa">
@@ -83,17 +98,24 @@
         </div>
     </li> 
 
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#data_account"
-            aria-expanded="true" aria-controls="data_account">
-            <i class="fas fa-fw fa-cog"></i>
-            <span>Master data</span>
-        </a>
-        <div id="data_account" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded"> 
-                <a class="collapse-item" href="<?= base_url() ?>administrator/account">Account</a> 
-            </div>
-        </div>
-    </li> 
+    <?php
+        if (session('type')=='admin'){
+            ?>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#data_account"
+                        aria-expanded="true" aria-controls="data_account">
+                        <i class="fas fa-fw fa-cog"></i>
+                        <span>Master data</span>
+                    </a>
+                    <div id="data_account" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded"> 
+                            <a class="collapse-item" href="<?= base_url() ?>administrator/account">Account</a> 
+                        </div>
+                    </div>
+                </li> 
+            <?php
+        }
+    ?>
+    
 
 </ul>
