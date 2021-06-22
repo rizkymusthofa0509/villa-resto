@@ -34,10 +34,10 @@ class Auth extends CI_Controller {
                 'TOKEN'=>time(),
             ];
 			$this->session->set_userdata($session);
-			if ($data['type']=='admin'){
-				redirect('administrator');
-			}else{
+			if ($data['type']=='user'){
 				redirect('apps');
+			}else{
+				redirect('apps/auth');
 			}
 			
 		}else{
