@@ -29,6 +29,7 @@
                 <option value="user" >User</option>
                 <option value="admin">Administrator</option>
                 <option value="receptionis">Receptionist</option>
+                <option value="kasir">Kasir</option>
             </select>
         </div> 
         <div class="form-group">

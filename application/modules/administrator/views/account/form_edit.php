@@ -29,6 +29,7 @@
                 <option value="user" <?php if($detail['type']=='user'){echo 'selected';} ?>>User</option>
                 <option value="admin" <?php if($detail['type']=='admin'){echo 'selected';} ?>>Administrator</option>
                 <option value="receptionis" <?php if($detail['type']=='receptionis'){echo 'selected';} ?>>Receptionist</option>
+                <option value="kasir" <?php if($detail['type']=='kasir'){echo 'selected';} ?>>Kasir</option>
             </select>
         </div> 
         <div class="form-group">

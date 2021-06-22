@@ -27,7 +27,7 @@
             <span>Dashboard</span></a>
     </li>
     <?php
-        if (session('type')=='admin'){
+        if ((session('type')=='admin') OR (session('type')=='kasir')){
             ?> 
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#kategori"
@@ -46,7 +46,7 @@
         }
     ?>
     <?php
-        if (session('type')=='admin'){
+        if ((session('type')=='admin') OR (session('type')=='kasir')){
             ?> 
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#produk"
@@ -65,7 +65,7 @@
         }
     ?>
     <?php
-        if (session('type')=='admin'){
+        if ((session('type')=='admin') OR (session('type')=='kasir')){
             ?>
 
                 <li class="nav-item">
@@ -84,19 +84,25 @@
             <?php
         }
     ?>
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#data_villa"
-            aria-expanded="true" aria-controls="data_villa">
-            <i class="fas fa-fw fa-cog"></i>
-            <span>Data Villa</span>
-        </a>
-        <div id="data_villa" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded"> 
-                <a class="collapse-item" href="<?= base_url() ?>administrator/villa/create">Tambah data</a>
-                <a class="collapse-item" href="<?= base_url() ?>administrator/villa">Data Villa</a>
-            </div>
-        </div>
-    </li> 
+    <?php
+        if ((session('type')=='admin') OR (session('type')=='kasir')){
+            ?>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#data_villa"
+                    aria-expanded="true" aria-controls="data_villa">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Data Villa</span>
+                </a>
+                <div id="data_villa" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded"> 
+                        <a class="collapse-item" href="<?= base_url() ?>administrator/villa/create">Tambah data</a>
+                        <a class="collapse-item" href="<?= base_url() ?>administrator/villa">Data Villa</a>
+                    </div>
+                </div>
+            </li> 
+    <?php
+        }
+    ?>
 
     <?php
         if (session('type')=='admin'){
