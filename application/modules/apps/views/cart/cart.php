@@ -70,7 +70,7 @@
 
          <div class="cart-items bg-white position-relative border-bottom"> 
             <div class="d-flex  align-items-center p-3"> 
-               <input onkeyup="update_transaksi(this,'name',<?= session('TOKEN') ?>)" placeholder="Nama Pemesan" type="text" class="form-control" id="notes" name="notes" aria-describedby="notes" required> 
+               <input onkeyup="update_transaksi(this,'name',<?= session('TOKEN') ?>)" placeholder="Masukan nama sesuai nama penyewa villa" type="text" class="form-control" id="notes" name="notes" aria-describedby="notes" required> 
                 
             </div>
          </div>
