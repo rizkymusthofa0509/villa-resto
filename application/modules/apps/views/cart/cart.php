@@ -70,13 +70,13 @@
 
          <div class="cart-items bg-white position-relative border-bottom"> 
             <div class="d-flex  align-items-center p-3"> 
-               <input onkeyup="update_transaksi(this,'name',<?= session('TOKEN') ?>)" placeholder="Masukan nama sesuai nama penyewa villa" type="text" class="form-control" id="notes" name="notes" aria-describedby="notes" required> 
+               <input id="nama_penyewa" onkeyup="update_transaksi(this,'name',<?= session('TOKEN') ?>)" placeholder="Masukan nama sesuai nama penyewa villa" type="text" class="form-control" id="notes" name="notes" aria-describedby="notes" required> 
                 
             </div>
          </div>
          <div class="cart-items bg-white position-relative border-bottom"> 
             <div class="d-flex  align-items-center p-3"> 
-               <select onchange="update_transaksi(this,'villa_id',<?= session('TOKEN') ?>)" name="form-control" style="width:100%;" required>
+               <select id="nama_villa" onchange="update_transaksi(this,'villa_id',<?= session('TOKEN') ?>)" name="form-control" style="width:100%;" required>
                   <option value="">--Pilih Villa--</option>
                   <?php 
                      foreach ($villa->result() as $list ) {
@@ -93,7 +93,7 @@
          
         <?php $this->load->view('ajax');  ?> 
          <div class="p-3 mt-5">
-            <a href="<?= base_url() ?>apps/order?status=diproses" class="text-decoration-none">
+            <a onclick="cek_form()" href="#" class="text-decoration-none">
                <div class="rounded shadow bg-success d-flex align-items-center p-3 text-white">
                   <div class="more">
                      <h6 class="m-0">Subtotal <font id="subTotal"><?= rp($total) ?></font></h6>
@@ -104,6 +104,19 @@
             </a>
          </div>
       </div>
+      <script>
+         function cek_form(){
+            var nama_penyewa = document.getElementById('nama_penyewa').value;
+            var nama_villa = document.getElementById('nama_villa').value;
+            if ((nama_penyewa=="")){
+               alert("Nama Penyewa Wajib diisi");
+            }else if ((nama_villa=="") ){
+               alert("Villa Wajib dipilih");
+            }else{
+               location.href='<?= base_url() ?>apps/order?status=diproses';
+            }
+         }
+      </script>
       <!-- Footer -->
       <div class="osahan-menu-fotter fixed-bottom bg-white text-center border-top">
          <div class="row m-0">
