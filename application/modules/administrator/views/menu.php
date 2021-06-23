@@ -52,7 +52,7 @@
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#produk"
                         aria-expanded="true" aria-controls="produk">
                         <i class="fas fa-fw fa-cog"></i>
-                        <span>Produk</span>
+                        <span>Menu</span>
                     </a>
                     <div id="produk" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded"> 
@@ -111,7 +111,7 @@
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#data_account"
                         aria-expanded="true" aria-controls="data_account">
                         <i class="fas fa-fw fa-cog"></i>
-                        <span>Master data</span>
+                        <span>Data Account</span>
                     </a>
                     <div id="data_account" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded"> 

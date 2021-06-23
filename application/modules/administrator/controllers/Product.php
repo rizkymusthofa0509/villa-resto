@@ -10,7 +10,7 @@ class Product extends CI_Controller {
 	    /*Model*/
 	    $this->load->model(array('M_product','M_category'));  
 	    // $this->load->helper('dompet_helper');  
-		$this->modul = 'Product';
+		$this->modul = 'Menu';
         login();
 	}
 	
