@@ -1,63 +1,94 @@
 <div class="container-fluid">
 
-<!-- Page Heading --> 
+    <!-- Page Heading -->
 
-<!-- DataTales Example -->
-<!-- Collapsable Card Example -->
- <!-- Dropdown Card Example -->
- <div class="card shadow mb-4">
-    <!-- Card Header - Dropdown -->
-    <div
-        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-        <h6 class="m-0 font-weight-bold text-primary">Data Villa</h6>
-        <div class="dropdown no-arrow">
-            <a href="<?= base_url() ?>administrator/villa/create" class="btn btn-primary btn-icon-split btn-sm">
-                <span class="icon text-white-50">
-                    <i class="fas fa-plus"></i>
-                </span>
-                <span class="text">Tambah data</span>
-            </a>
+    <!-- DataTales Example -->
+    <!-- Collapsable Card Example -->
+    <!-- Dropdown Card Example -->
+    <div class="card shadow mb-4">
+        <!-- Card Header - Dropdown -->
+        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+            <h6 class="m-0 font-weight-bold text-primary">Data Villa</h6>
+            <div class="dropdown no-arrow">
+                <?php
+                if ((session('type') == 'admin')) {
+                ?>
+                    <a href="<?= base_url() ?>administrator/villa/create" class="btn btn-primary btn-icon-split btn-sm">
+                        <span class="icon text-white-50">
+                            <i class="fas fa-plus"></i>
+                        </span>
+                        <span class="text">Tambah data</span>
+                    </a>
+                <?php
+                }
+                ?>
+
+            </div>
         </div>
-    </div>
-    <!-- Card Body -->
-    <div class="card-body">
-    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <!-- Card Body -->
+        <div class="card-body">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
                         <th width="1%">No</th>
-                        <th>Villa</th> 
-                        <th>Penyewa</th> 
-                        <th width="10%">Action</th> 
+                        <th>Villa</th>
+                        <th>Penyewa</th>
+                        <?php
+                        if ((session('type') == 'admin') or (session('type') == 'receptionis')) {
+                        ?>
+                            <th width="10%">Action</th>
+                        <?php
+                        }
+                        ?>
+
                     </tr>
-                </thead> 
+                </thead>
                 <tbody>
                     <?php
-                        $no=1;
-                        foreach ($getAll->result() as $data) {
+                    $no = 1;
+                    foreach ($getAll->result() as $data) {
+                    ?>
+                        <tr>
+                            <td><?= $no++ ?></td>
+                            <td><?= $data->name ?></td>
+                            <td><?= $data->penyewa ?></td>
+                            <?php
+                            if ((session('type') == 'admin') or (session('type') == 'receptionis')) {
                             ?>
-                                <tr>
-                                    <td><?=$no++?></td>
-                                    <td><?= $data->name ?></td> 
-                                    <td><?= $data->penyewa ?></td> 
-                                    <td>
-                                        
+                                <td>
+                                    <?php
+                                    if ((session('type') == 'admin') or (session('type') == 'receptionis')) {
+                                    ?>
                                         <a href="<?= base_url() ?>administrator/villa/edit/<?= $data->id ?>" class="btn btn-info btn-circle btn-sm">
                                             <i class="fas fa-info-circle"></i>
                                         </a>
+                                    <?php
+                                    }
+                                    ?>
+                                    <?php
+                                    if ((session('type') == 'admin')) {
+                                    ?>
                                         <a href="<?= base_url() ?>administrator/villa/destroy/<?= $data->id ?>" onclick="return confirm('Yakin ingin menghapus data ?');" class="btn btn-danger btn-circle btn-sm">
                                             <i class="fas fa-trash"></i>
                                         </a>
-                                    </td> 
-                                </tr>       
+                                    <?php
+                                    }
+                                    ?>
+                                </td>
                             <?php
-                        }
+                            }
+                            ?>
+
+                        </tr>
+                    <?php
+                    }
                     ?>
                 </tbody>
             </table>
+        </div>
     </div>
-</div>
 
- 
+
 
 </div>
 <!-- /.container-fluid -->
