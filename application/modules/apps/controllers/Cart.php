@@ -107,12 +107,16 @@ class Cart extends CI_Controller
 		}
 
 		//Cek Harga produk
-		$product_id = $cek['product_id'];
-		$produk = $this->db->query("SELECT * FROM product WHERE id='$product_id' ")->row_array();
-		$total_price = $produk['price'] * $no;
+		if ($no < 0) {
+			echo "NO";
+		} else {
+			$product_id = $cek['product_id'];
+			$produk = $this->db->query("SELECT * FROM product WHERE id='$product_id' ")->row_array();
+			$total_price = $produk['price'] * $no;
 
-		$this->db->query("UPDATE transaction_detail SET qty='$no',total_price='$total_price' WHERE id='$id' ");
-		echo $no;
+			$this->db->query("UPDATE transaction_detail SET qty='$no',total_price='$total_price' WHERE id='$id' ");
+			echo $no;
+		}
 	}
 
 	public function total_price()
@@ -130,5 +134,12 @@ class Cart extends CI_Controller
 		$update = post('update');
 		$this->db->query("UPDATE transaction SET $field='$update' WHERE TOKEN='$id' ");
 		echo "Success";
+	}
+
+	public function hapus_pesanan()
+	{
+		$id = post('id');
+		$this->db->query("DELETE FROM transaction_detail WHERE id='$id' ");
+		echo "Berhasil dihapus";
 	}
 }
