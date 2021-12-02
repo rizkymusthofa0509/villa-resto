@@ -43,9 +43,9 @@
       <!-- body -->
       <div class="osahan-body">
          <!-- Pick's Today -->
-         <div class="title d-flex align-items-center mb-3 mt-3 px-3">
+         <!-- <div class="title d-flex align-items-center mb-3 mt-3 px-3">
             <h6 class="m-0">Apa yang anda cari ? </h6>
-         </div>
+         </div> -->
          <!-- pick today -->
          <div class="pick_today px-3 pb-2">
 

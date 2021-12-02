@@ -66,19 +66,11 @@
                      <label class="btn btn-secondary active">
                         <input type="radio" name="options" id="option1" checked> <?= $detail['category'] ?>
                      </label>
-                  </div>
 
-                  <a class="ml-auto" href="cart.html">
-                     <div class="input-group input-spinner ml-auto cart-items-number">
-                        <div class="input-group-prepend">
-                           <button class="btn btn-success btn-sm" type="button" id="button-plus"> + </button>
-                        </div>
-                        <input type="text" class="form-control" value="1">
-                        <div class="input-group-append">
-                           <button class="btn btn-success btn-sm" type="button" id="button-minus"> − </button>
-                        </div>
-                     </div>
-                  </a>
+                  </div>
+                  <a onclick="chart(<?= $detail['id'] ?>);" href="#" class="btn btn-success btn-block">Buy</a>
+
+
                </div>
             </div>
             <div class="p-3">
@@ -108,9 +100,30 @@
             </div>
          </div>
       </div>
-      <div class="fixed-bottom pd-f bg-white d-flex align-items-center border-top">
+      <!-- <div class="fixed-bottom pd-f bg-white d-flex align-items-center border-top">
          <a href="<?= base_url() ?>apps/cart" class="btn-warning py-3 px-5 h4 m-0"><i class="icofont-cart"></i></a>
          <a onclick="chart(<?= $detail['id'] ?>);" href="#" class="btn btn-success btn-block">Buy</a>
+      </div> -->
+      <!-- Footer -->
+      <div class="osahan-menu-fotter fixed-bottom bg-white text-center border-top">
+         <div class="row m-0">
+            <a href="<?= base_url() ?>apps/home" class="text-muted small col font-weight-bold text-decoration-none p-2">
+               <p class="h5 m-0"><i class=" icofont-grocery"></i></p>
+               Menu
+            </a>
+            <a href="<?= base_url() ?>apps/cart" class="text-muted col small text-decoration-none p-2">
+               <p class="h5 m-0"><i class="icofont-cart"></i></p>
+               Cart
+            </a>
+            <a href="<?= base_url() ?>apps/order" class="text-muted col small text-decoration-none p-2">
+               <p class="h5 m-0"><i class="icofont-bag"></i></p>
+               My Order
+            </a>
+            <a href="<?= base_url() ?>apps/auth/logout" class="text-muted small col text-decoration-none p-2">
+               <p class="h5 m-0"><i class="icofont-user"></i></p>
+               Logout
+            </a>
+         </div>
       </div>
    </div>
    </div>
