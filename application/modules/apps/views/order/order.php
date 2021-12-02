@@ -66,33 +66,99 @@
       <div class="order-body px-3 pt-3">
          <?php
          foreach ($list->result() as $data) {
-            if ($data->status == $this->input->get('status')) {
 
+            switch ($this->input->get('status')) {
+               case 'selesai':
+                  if ($data->status == 'selesai') {
          ?>
-               <div class="pb-3">
-                  <a href="#" class="text-decoration-none text-dark">
-                     <div class="p-3 rounded shadow-sm bg-white">
-                        <div class="d-flex align-items-center mb-3">
-                           <p class="bg-success text-white py-1 px-2 mb-0 rounded small"><?= $data->status ?></p>
-                           <p class="text-muted ml-auto small mb-0"><i class="icofont-clock-time"></i> <?= $data->created_at ?></p>
-                        </div>
-                        <div class="d-flex">
-                           <p class="text-muted m-0">Transaction. ID<br>
-                              <span class="text-dark font-weight-bold">#<?= $data->TOKEN ?></span>
-                           </p>
-                           <p class="text-muted m-0 ml-auto">Delivered to<br>
-                              <span class="text-dark font-weight-bold"><?= $data->villa_name ?></span>
-                           </p>
-                           <p class="text-muted m-0 ml-auto">Total Payment<br>
-                              <span class="text-dark font-weight-bold"><?= rp(total_price($data->TOKEN)) ?></span>
-                           </p>
-                        </div>
+                     <div class="pb-3">
+                        <a href="#" class="text-decoration-none text-dark">
+                           <div class="p-3 rounded shadow-sm bg-white">
+                              <div class="d-flex align-items-center mb-3">
+                                 <p class="bg-success text-white py-1 px-2 mb-0 rounded small"><?= $data->status ?></p>
+                                 <p class="text-muted ml-auto small mb-0"><i class="icofont-clock-time"></i> <?= $data->created_at ?></p>
+                              </div>
+                              <div class="d-flex">
+                                 <p class="text-muted m-0">Transaction. ID<br>
+                                    <span class="text-dark font-weight-bold">#<?= $data->TOKEN ?></span>
+                                 </p>
+                                 <p class="text-muted m-0 ml-auto">Delivered to<br>
+                                    <span class="text-dark font-weight-bold"><?= $data->villa_name ?></span>
+                                 </p>
+                                 <p class="text-muted m-0 ml-auto">Total Payment<br>
+                                    <span class="text-dark font-weight-bold"><?= rp(total_price($data->TOKEN)) ?></span>
+                                 </p>
+                              </div>
+                           </div>
+                        </a>
                      </div>
-                  </a>
-               </div>
-         <?php
+                  <?php
+                  }
+                  break;
+               case 'reject':
+                  if (($data->status == 'reject')) {
+                  ?>
+                     <div class="pb-3">
+                        <a href="#" class="text-decoration-none text-dark">
+                           <div class="p-3 rounded shadow-sm bg-white">
+                              <div class="d-flex align-items-center mb-3">
+                                 <p class="bg-success text-white py-1 px-2 mb-0 rounded small"><?= $data->status ?></p>
+                                 <p class="text-muted ml-auto small mb-0"><i class="icofont-clock-time"></i> <?= $data->created_at ?></p>
+                              </div>
+                              <div class="d-flex">
+                                 <p class="text-muted m-0">Transaction. ID<br>
+                                    <span class="text-dark font-weight-bold">#<?= $data->TOKEN ?></span>
+                                 </p>
+                                 <p class="text-muted m-0 ml-auto">Delivered to<br>
+                                    <span class="text-dark font-weight-bold"><?= $data->villa_name ?></span>
+                                 </p>
+                                 <p class="text-muted m-0 ml-auto">Total Payment<br>
+                                    <span class="text-dark font-weight-bold"><?= rp(total_price($data->TOKEN)) ?></span>
+                                 </p>
+                              </div>
+                           </div>
+                        </a>
+                     </div>
+                  <?php
+                  }
+                  break;
+               case 'diproses':
+                  if (($data->status == 'diproses') or ($data->status == 'dikirim') or ($data->status == 'dipesan')) {
+                  ?>
+                     <div class="pb-3">
+                        <a href="#" class="text-decoration-none text-dark">
+                           <div class="p-3 rounded shadow-sm bg-white">
+                              <div class="d-flex align-items-center mb-3">
+                                 <p class="bg-success text-white py-1 px-2 mb-0 rounded small"><?= $data->status ?></p>
+                                 <p class="text-muted ml-auto small mb-0"><i class="icofont-clock-time"></i> <?= $data->created_at ?></p>
+                              </div>
+                              <div class="d-flex">
+                                 <p class="text-muted m-0">Transaction. ID<br>
+                                    <span class="text-dark font-weight-bold">#<?= $data->TOKEN ?></span>
+                                 </p>
+                                 <p class="text-muted m-0 ml-auto">Delivered to<br>
+                                    <span class="text-dark font-weight-bold"><?= $data->villa_name ?></span>
+                                 </p>
+                                 <p class="text-muted m-0 ml-auto">Total Payment<br>
+                                    <span class="text-dark font-weight-bold"><?= rp(total_price($data->TOKEN)) ?></span>
+                                 </p>
+                              </div>
+                           </div>
+                        </a>
+                     </div>
+            <?php
+                  }
+                  break;
 
+               default:
+                  # code...
+                  break;
             }
+
+
+            ?>
+
+         <?php
          }
          ?>
 
