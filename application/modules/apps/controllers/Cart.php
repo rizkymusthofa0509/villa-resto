@@ -1,84 +1,86 @@
 <?php
- 
-defined('BASEPATH') OR exit('No direct script access allowed');
-class Cart extends CI_Controller {
- 	function __construct() {
-	    parent::__construct(); 
 
-	    /*Load session*/
-	    $this->load->library('session');
-	    /*Model*/ 
-	    $this->load->model(array('M_account','M_product','M_transaction','M_transaction_detail'));
+defined('BASEPATH') or exit('No direct script access allowed');
+class Cart extends CI_Controller
+{
+	function __construct()
+	{
+		parent::__construct();
+
+		/*Load session*/
+		$this->load->library('session');
+		/*Model*/
+		$this->load->model(array('M_account', 'M_product', 'M_transaction', 'M_transaction_detail'));
 
 
-	    $this->base_url = 'apps';
+		$this->base_url = 'apps';
 		login_app();
 	}
-	
+
 	public function index()
-	{ 
-		
+	{
+
 		$token = session('TOKEN');
 		$cek_token = $this->db->query("SELECT * FROM `transaction` WHERE TOKEN='$token' ")->row_array();
-		if (!empty($cek_token['id'])){
+		if (!empty($cek_token['id'])) {
 			$id = $cek_token['id'];
-		}else{
+		} else {
 			$id = 0;
 		}
-		$token = session('TOKEN'); 
+		$token = session('TOKEN');
 		$cek_token = $this->db->query("SELECT * FROM `transaction` WHERE TOKEN='$token' ")->row_array();
 		$detail    = $this->db->query("SELECT SUM(total_price) as total_price FROM `transaction_detail` WHERE transaction_id='$cek_token[id]' ")->row_array();
 		$data['total'] = $detail['total_price'];
 		$data['cart'] = $this->M_transaction_detail->getWhere($id);
 		$data['villa'] = $this->db->query("SELECT * FROM villa");
-		$this->load->view('cart/cart',$data); 
+		$this->load->view('cart/cart', $data);
 	}
 
 	public function pesan()
 	{
 		$token = post('token');
-		$id = post('id'); 
+		$id = post('id');
 		$product = $this->db->query("SELECT * FROM `product` WHERE id='$id'")->row_array();
 		$cek_token = $this->db->query("SELECT * FROM `transaction` WHERE TOKEN='$token' ");
-		if ($cek_token->num_rows() > 0){
+		if ($cek_token->num_rows() > 0) {
 			//Pesanan Sudah ada. tinggal masukin produk
 			$transaksi_id = $cek_token->row_array();
 			$data_pesanan = [
-				'transaction_id'=>$transaksi_id['id'],
-				'product_id'=>$id,
-				'qty'=>1,
-				'total_price'=>$product['price'],
-				'notes'=>'',
-				'created_at'=>created_at(),
-				'updated_at'=>created_at(),
+				'transaction_id' => $transaksi_id['id'],
+				'product_id' => $id,
+				'qty' => 1,
+				'total_price' => $product['price'],
+				'notes' => '',
+				'created_at' => created_at(),
+				'updated_at' => created_at(),
 			];
-			$this->db->insert('transaction_detail',$data_pesanan);
-		}else{
+			$this->db->insert('transaction_detail', $data_pesanan);
+		} else {
 			//Pesanan Belum ada. masukan transaksi dan lakukan tambahan data produk
 			//Masukan data ke table transaksi
 			$data_transaksi = [
-				'name'=>'',
-				'villa_id'=>'',
-				'status'=>'dipesan',
-				'TOKEN'=>session('TOKEN'),
-				'created_at'=>created_at(),
-				'updated_at'=>created_at(),
+				'name' => '',
+				'villa_id' => '',
+				'status' => 'dipesan',
+				'TOKEN' => session('TOKEN'),
+				'created_at' => created_at(),
+				'updated_at' => created_at(),
 			];
-			$this->db->insert('transaction',$data_transaksi);
+			$this->db->insert('transaction', $data_transaksi);
 			$token = post('token');
 			$cek_token = $this->db->query("SELECT * FROM `transaction` WHERE TOKEN='$token' ");
 			$transaksi_id = $cek_token->row_array();
 			//Masukan data ke table transaksi detail
 			$data_pesanan = [
-				'transaction_id'=>$transaksi_id['id'],
-				'product_id'=>$id,
-				'qty'=>1,
-				'total_price'=>$product['price'],
-				'notes'=>'',
-				'created_at'=>created_at(),
-				'updated_at'=>created_at(),
+				'transaction_id' => $transaksi_id['id'],
+				'product_id' => $id,
+				'qty' => 1,
+				'total_price' => $product['price'],
+				'notes' => '',
+				'created_at' => created_at(),
+				'updated_at' => created_at(),
 			];
-			$this->db->insert('transaction_detail',$data_pesanan);
+			$this->db->insert('transaction_detail', $data_pesanan);
 		}
 
 		echo "Berhasil menambahkan kedalam keranjang.";
@@ -93,21 +95,21 @@ class Cart extends CI_Controller {
 		echo "Success";
 	}
 	public function update_qty()
-	{ 
+	{
 		$id = post('id');
 		$tipe = post('tipe');
 		$cek = $this->db->query("SELECT * FROM transaction_detail WHERE id='$id' ")->row_array();
 		$no = $cek['qty'];
-		if ($tipe=='+'){
-			$no = $no+1;
-		}else{
-			$no = $no-1;
+		if ($tipe == '+') {
+			$no = $no + 1;
+		} else {
+			$no = $no - 1;
 		}
 
 		//Cek Harga produk
 		$product_id = $cek['product_id'];
 		$produk = $this->db->query("SELECT * FROM product WHERE id='$product_id' ")->row_array();
-		$total_price = $produk['price']*$no;
+		$total_price = $produk['price'] * $no;
 
 		$this->db->query("UPDATE transaction_detail SET qty='$no',total_price='$total_price' WHERE id='$id' ");
 		echo $no;
@@ -115,12 +117,12 @@ class Cart extends CI_Controller {
 
 	public function total_price()
 	{
-		$token = session('TOKEN'); 
+		$token = session('TOKEN');
 		$cek_token = $this->db->query("SELECT * FROM `transaction` WHERE TOKEN='$token' ")->row_array();
 		$detail    = $this->db->query("SELECT SUM(total_price) as total_price FROM `transaction_detail` WHERE transaction_id='$cek_token[id]' ")->row_array();
 		echo rp($detail['total_price']);
 	}
-	
+
 	public function update_transaksi()
 	{
 		$field = post('field');
@@ -129,5 +131,4 @@ class Cart extends CI_Controller {
 		$this->db->query("UPDATE transaction SET $field='$update' WHERE TOKEN='$id' ");
 		echo "Success";
 	}
- 
 }
