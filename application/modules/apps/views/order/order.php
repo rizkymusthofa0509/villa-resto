@@ -129,7 +129,7 @@
                         <a href="#" class="text-decoration-none text-dark">
                            <div class="p-3 rounded shadow-sm bg-white">
                               <div class="d-flex align-items-center mb-3">
-                                 <p class="bg-success text-white py-1 px-2 mb-0 rounded small"><?= $data->status ?></p>
+                                 <p class="bg-success text-white py-1 px-2 mb-0 rounded small"><?= $data->status == "dipesan" ? 'Waiting Checkout' : $data->status; ?></p>
                                  <p class="text-muted ml-auto small mb-0"><i class="icofont-clock-time"></i> <?= $data->created_at ?></p>
                               </div>
                               <div class="d-flex">
