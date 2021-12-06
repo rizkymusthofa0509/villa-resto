@@ -1,61 +1,63 @@
 <?php
- 
-defined('BASEPATH') OR exit('No direct script access allowed');
-class Auth extends CI_Controller {
- 	function __construct() {
-	    parent::__construct(); 
 
-	    /*Load session*/
-	    $this->load->library('session');
-	    /*Model*/ 
-	    $this->load->model(array('M_account'));
+defined('BASEPATH') or exit('No direct script access allowed');
+class Auth extends CI_Controller
+{
+	function __construct()
+	{
+		parent::__construct();
+
+		/*Load session*/
+		$this->load->library('session');
+		/*Model*/
+		$this->load->model(array('M_account'));
 
 
-	    $this->base_url = 'apps'; 
+		$this->base_url = 'apps';
 	}
-	 
+
 	public function index()
-	{ 
-	
+	{
+
 		$this->load->view('login');
 	}
 
 	public function handler()
 	{
 		$username = post('username');
-		$password = md5(post('password'));  
+		$password = md5(post('password'));
 
-		if (($username=="") OR ($password=="")){
-			set_flashdata('info','
+		if (($username == "") or ($password == "")) {
+			set_flashdata('info', '
                         <div class="alert alert-danger" role="alert">
                             Username / Password tidak boleh kosong
                         </div>
                     ');
-				redirect('apps/auth');
+			redirect('apps/auth');
 		}
 
 		$cek = $this->db->query("SELECT * FROM account WHERE username='$username' AND password='$password' ");
-		if ($cek->num_rows() > 0){
+		if ($cek->num_rows() > 0) {
 			$data = $cek->row_array();
-            $session =  [
-                'id'=>$data['id'],
-                'fullname'=>$data['fullname'],
-                'TOKEN'=>time(),
-            ];
+			$session =  [
+				'id' => $data['id'],
+				'fullname' => $data['fullname'],
+				'TOKEN' => time(),
+				'checkout' => '0',
+			];
 			$this->session->set_userdata($session);
-			if ($data['type']=='user'){
+			if ($data['type'] == 'user') {
 				redirect('apps');
-			}else{
-				set_flashdata('info','
+			} else {
+				set_flashdata('info', '
                         <div class="alert alert-danger" role="alert">
                             Anda tidak memiliki akses
                         </div>
                     ');
 				redirect('apps/auth');
 			}
-			
-		}else{
-			set_flashdata('info','
+		} else {
+			set_flashdata('info', '
                         <div class="alert alert-danger" role="alert">
                             Username / Password salah.
                         </div>
@@ -69,6 +71,4 @@ class Auth extends CI_Controller {
 		session_destroy();
 		redirect('apps/auth');
 	}
-	 
- 
 }

@@ -31,7 +31,7 @@ class Cart extends CI_Controller
 		$cek_token = $this->db->query("SELECT * FROM `transaction` WHERE TOKEN='$token' ")->row_array();
 		$detail    = $this->db->query("SELECT SUM(total_price) as total_price FROM `transaction_detail` WHERE transaction_id='$cek_token[id]' ")->row_array();
 		$data['total'] = $detail['total_price'];
-		$data['checkout'] = $cek_token['checkout'];
+		$data['checkout'] = session('checkout');
 		$data['cart'] = $this->M_transaction_detail->getWhere($id);
 		$data['villa'] = $this->db->query("SELECT * FROM villa");
 		$this->load->view('cart/cart', $data);
@@ -146,10 +146,8 @@ class Cart extends CI_Controller
 
 	public function checkout()
 	{
-		$token = session('TOKEN');
-		$update = $this->db->query("UPDATE transaction SET checkout='1' WHERE TOKEN='$token' ");
-		if ($update) {
-			return redirect('apps/order?status=diproses');
-		}
+		$token = session('checkout');
+		$this->session->set_userdata('checkout', '1');
+		return redirect('apps/order?status=diproses');
 	}
 }
