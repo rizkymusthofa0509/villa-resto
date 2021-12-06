@@ -94,16 +94,35 @@
 
          <?php $this->load->view('ajax');  ?>
          <div class="p-3 mt-5">
-            <a onclick="cek_form()" href="#" class="text-decoration-none">
+            <?php
+            if ($checkout == '0') {
+            ?>
+               <a onclick="cek_form()" href="#" class="text-decoration-none">
+                  <div class="rounded shadow bg-success d-flex align-items-center p-3 text-white">
+                     <div class="more">
+                        <h6 class="m-0">Subtotal <font id="subTotal"><?= rp($total) ?></font>
+                        </h6>
+                        <p class="small m-0">Proceed to checkout</p>
+                     </div>
+                     <div class="ml-auto"><i class="icofont-simple-right"></i></div>
+                  </div>
+               </a>
+            <?php
+            } else {
+            ?>
+
                <div class="rounded shadow bg-success d-flex align-items-center p-3 text-white">
                   <div class="more">
                      <h6 class="m-0">Subtotal <font id="subTotal"><?= rp($total) ?></font>
                      </h6>
-                     <p class="small m-0">Proceed to checkout</p>
+                     <p class="small m-0">Anda sudah checkout, mohon tunggu pesanan anda.</p>
                   </div>
-                  <div class="ml-auto"><i class="icofont-simple-right"></i></div>
+                  <div class="ml-auto"></div>
                </div>
-            </a>
+            <?php
+            }
+            ?>
+
          </div>
       </div>
       <script>
@@ -115,7 +134,7 @@
             } else if ((nama_villa == "")) {
                alert("Villa Wajib dipilih");
             } else {
-               location.href = '<?= base_url() ?>apps/order?status=diproses';
+               location.href = '<?= base_url() ?>apps/cart/checkout';
             }
          }
       </script>
